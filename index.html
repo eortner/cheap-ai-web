@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cheap AI - Jira plugin for intelligent prompt generation">
+    <title>Cheap AI - Fast prompts, tiny price</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0099cc;
+            --dark: #0a1929;
+            --darker: #051423;
+            --light: #e6f7ff;
+            --accent: #00ff88;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Animated Tech Background */
+        .tech-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+        }
+
+        .tech-bg::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, transparent 30%, rgba(0, 212, 255, 0.05) 70%),
+                radial-gradient(circle at 80% 80%, transparent 40%, rgba(0, 153, 204, 0.05) 80%),
+                linear-gradient(45deg, transparent 48%, rgba(0, 212, 255, 0.03) 50%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0, 212, 255, 0.03) 50%, transparent 52%);
+            background-size: 100px 100px, 150px 150px, 60px 60px, 60px 60px;
+            animation: techMove 25s linear infinite;
+        }
+
+        @keyframes techMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 25, 41, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .hero-content .slogan {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        section:nth-child(even) {
+            background: rgba(10, 25, 41, 0.6);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: rgba(0, 212, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* Solution Section */
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .solution-text h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .solution-text ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .solution-text li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .solution-text li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .solution-visual {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-mock {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--primary);
+        }
+
+        .code-mock .comment {
+            color: #888;
+        }
+
+        .code-mock .keyword {
+            color: var(--accent);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin: 20px 0 15px;
+            font-size: 1.4rem;
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--darker);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(0, 212, 255, 0.08);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(10, 25, 41, 0.7);
+            color: var(--light);
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            .solution-content {
+                grid-template-columns: 1fr;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            nav {
+                padding: 15px 0;
+            }
+            .nav-links a {
+                margin-left: 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-bg"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#home" class="logo">Cheap AI</a>
+            <div class="nav-links">
+                <a href="#problem">Problem</a>
+                <a href="#solution">Solution</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Cheap AI</h1>
+                    <p class="slogan">Fast prompts, tiny price</p>
+                    <p>Transform your Jira workflow with intelligent AI prompt generation. Stop manually copying issue data—let Cheap AI do the heavy lifting.</p>
+                    <a href="#solution" class="cta-button">See How It Works</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Problem Section -->
+        <section id="problem">
+            <div class="container">
+                <h2>The Challenge</h2>
+                <p style="text-align: center; font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9;">
+                    Your team wastes hours manually extracting Jira issue details, hunting down linked dependencies, and formatting everything for AI tools. It's error-prone, slow, and breaks your workflow.
+                </p>
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <h3>⏱️ Time Drain</h3>
+                        <p>Manually copying issue summaries, descriptions, comments, and linked issues takes 15-20 minutes per AI query.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h3>🎯 Context Loss</h3>
+                        <p>Critical information from related epics, stories, and bugs gets missed when manually preparing prompts.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h3>🔁 Workflow Disruption</h3>
+                        <p>Constant context-switching between Jira and AI tools breaks developer focus and productivity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Solution Section -->
+        <section id="solution">
+            <div class="container">
+                <h2>Our Smart Solution</h2>
+                <div class="solution-content">
+                    <div class="solution-text">
+                        <h3>Intelligent Jira-to-AI Bridge</h3>
+                        <p>Cheap AI seamlessly integrates with your Jira instance, automatically aggregating issue data and transforming it into structured, context-rich AI prompts.</p>
+                        <ul>
+                            <li>Instantly fetches main issue details, comments, and metadata</li>
+                            <li>Recursively gathers all linked issues (epics, dependencies, blockers)</li>
+                            <li>Intelligently formats everything into optimized AI prompts</li>
+                            <li>One-click copy to your favorite AI tool</li>
+                        </ul>
+                        <p><strong>Result:</strong> Get comprehensive AI analysis in seconds, not minutes.</p>
+                    </div>
+                    <div class="solution-visual">
+                        <div class="code-mock">
+                            <div class="comment">// Before: Manual Process</div>
+                            <div>• Open Jira issue<br>• Copy summary, description<br>• Find linked issues<br>• Copy each linked issue<br>• Format prompt manually<br>• <span class="keyword">30 minutes wasted</span></div>
+                            <br>
+                            <div class="comment">// After: Cheap AI</div>
+                            <div>• Click plugin icon<br>• <span class="keyword">✨ Instant prompt generated</span><br>• Paste into AI tool<br>• <span class="keyword">30 seconds total</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features">
+            <div class="container">
+                <h2>Why Choose Cheap AI?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Generate comprehensive prompts in under 5 seconds. No more manual data hunting.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🧠</div>
+                        <h3>Context-Aware</h3>
+                        <p>Automatically includes relevant data from parent epics, child stories, and blocking issues.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💰</div>
+                        <h3>Affordable</h3>
+                        <p>Priced for teams of all sizes. Pay a fraction of the cost of developer time wasted.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🔒</div>
+                        <h3>Secure & Private</h3>
+                        <p>Your data stays within your Jira instance. No external servers, no data retention.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🎯</div>
+                        <h3>AI-Optimized</h3>
+                        <p>Prompts are structured for maximum clarity and better AI responses.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🔧</div>
+                        <h3>Zero Config</h3>
+                        <p>Install and go. Works out-of-the-box with your existing Jira setup.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-section">
+                    <form action="https://formsubmit.co/contactcheapai@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourusername.github.io/cheap-ai/">
+                        <input type="hidden" name="_subject" value="New Cheap AI Inquiry">
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Jane Smith">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@company.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company (Optional)</label>
+                            <input type="text" id="company" name="company" placeholder="Acme Corp">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your Jira workflow needs..."></textarea>
+                        </div>
+
+                        <button type="submit">Send Message →</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cheap AI. All rights reserved. | <a href="eula.html">End User License Agreement</a></p>
+        </div>
+    </footer>
+</body>
+</html>

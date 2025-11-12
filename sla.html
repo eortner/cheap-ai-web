@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLA Statement - Cheap AI for Jira</title>
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --dark: #0a1929;
+            --darker: #051423;
+            --light: #e6f7ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            background: var(--darker);
+            color: var(--light);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(10, 25, 41, 0.8);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 30px;
+        }
+
+        .sla-metric {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            margin: 25px 0;
+        }
+
+        .sla-metric h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .sla-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .sla-table th, .sla-table td {
+            padding: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            text-align: left;
+        }
+
+        .sla-table th {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), #0099cc);
+            color: var(--darker);
+            border-radius: 8px;
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .warning {
+            background: rgba(255, 165, 0, 0.1);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .warning strong {
+            color: #ffa500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Service Level Agreement (SLA) Statement</h1>
+        <p><strong>Last Updated:</strong> January 1, 2025</p>
+
+        <div class="warning">
+            <strong>⚠️ Legal Notice:</strong> This SLA statement is a template for demonstration purposes. It has not been reviewed by legal counsel and may not be enforceable. Consult with an attorney before publishing any SLA for your commercial product.
+        </div>
+
+        <h2>1. Service Availability</h2>
+        <p>Cheap AI for Jira is a plugin that operates within your Atlassian Jira instance. Our service commitment covers:</p>
+        
+        <div class="sla-metric">
+            <h3>Plugin Uptime: 99.5% Monthly</h3>
+            <p>We guarantee that the plugin's core functionality will be available 99.5% of the time, excluding scheduled maintenance and Atlassian platform outages.</p>
+        </div>
+
+        <div class="sla-metric">
+            <h3>AI Prompt Generation: 99.9% Success Rate</h3>
+            <p>Successful generation of AI prompts from Jira issue data, excluding cases where Jira API is unavailable or malformed issue data.</p>
+        </div>
+
+        <p><strong>Measurement:</strong> Uptime is calculated monthly based on plugin heartbeat checks and error rate monitoring.</p>
+
+        <h2>2. Support Services</h2>
+        <table class="sla-table">
+            <tr>
+                <th>Support Channel</th>
+                <th>Availability</th>
+                <th>Initial Response Time</th>
+            </tr>
+            <tr>
+                <td>Email (contactcheapai@gmail.com)</td>
+                <td>Business Hours (EST, Mon-Fri, 9 AM - 6 PM)</td>
+                <td>Within 24 hours</td>
+            </tr>
+            <tr>
+                <td>Critical Bug Reports</td>
+                <td>Business Hours</td>
+                <td>Within 4 hours</td>
+            </tr>
+        </table>
+
+        <h3>Support Scope</h3>
+        <ul>
+            <li>Installation and configuration assistance</li>
+            <li>Bug troubleshooting and resolution</li>
+            <li>Feature usage guidance</li>
+            <li>Performance optimization advice</li>
+        </ul>
+
+        <h2>3. Maintenance</h2>
+        <div class="sla-metric">
+            <h3>Scheduled Maintenance</h3>
+            <p>We perform scheduled maintenance during Atlassian's standard maintenance windows. Advance notice of 5 business days will be provided for any maintenance requiring plugin updates.</p>
+        </div>
+
+        <div class="sla-metric">
+            <h3>Updates</h3>
+            <p>Critical security updates will be released within 48 hours of identification. Feature updates are released on a monthly cadence.</p>
+        </div>
+
+        <h2>4. Exclusions</h2>
+        <p>The SLA does not cover failures due to:</p>
+        <ul>
+            <li>Atlassian Jira platform outages or maintenance</li>
+            <li>Customer's network or infrastructure issues</li>
+            <li>Third-party plugins conflicting with Cheap AI for Jira</li>
+            <li>Unauthorized modifications to the plugin code</li>
+            <li>Issues caused by malformed Jira issue data</li>
+            <li>Force majeure events</li>
+        </ul>
+
+        <h2>5. Service Credits</h2>
+        <p>If we fail to meet the 99.5% uptime guarantee in a given month, you may request a service credit:</p>
+        <ul>
+            <li><strong>98.0% - 99.4% uptime:</strong> 10% credit of monthly fee</li>
+            <li><strong>95.0% - 97.9% uptime:</strong> 25% credit of monthly fee</li>
+            <li><strong>Below 95.0% uptime:</strong> 50% credit of monthly fee</li>
+        </ul>
+        <p>Credits must be requested within 30 days and will be applied to future billing cycles.</p>
+
+        <h2>6. SLA Monitoring & Reporting</h2>
+        <p>We continuously monitor plugin performance via Atlassian's analytics framework. Upon request, we can provide uptime reports for your instance.</p>
+
+        <h2>7. Changes to SLA</h2>
+        <p>This SLA may be updated with 30 days' notice. Changes will be posted on this page and notified via email to registered users.</p>
+
+        <h2>8. Contact</h2>
+        <p>For SLA-related inquiries or to report a breach, contact: <strong>contactcheapai@gmail.com</strong></p>
+
+        <p>Response time for SLA breach reports: Within 4 business hours during business days.</p>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>

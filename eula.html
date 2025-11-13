@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EULA - Cheap AI for Jira</title>
+    <title>EULA - Cheap AI for Workplace</title>
     <style>
         :root {
             --primary: #00d4ff;
@@ -75,6 +75,32 @@
             transform: translateY(-2px);
             text-decoration: none;
         }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 20px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+        .cookie-banner.show { display: block; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .cookie-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .cookie-text { flex: 1; min-width: 300px; }
+        .cookie-text p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+        .cookie-text a { color: var(--primary); text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 10px; }
+        .cookie-btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .cookie-accept { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--darker); }
+        .cookie-reject { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+        .cookie-btn:hover { transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -83,13 +109,13 @@
         <p><strong>Last Updated:</strong> January 1, 2025</p>
 
         <h2>1. Introduction</h2>
-        <p>This End User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and Cheap AI for Jira for the use of the Cheap AI for Jira plugin ("the Software"). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this EULA.</p>
+        <p>This End User License Agreement ("EULA") is a legal agreement between you (either an individual or a single entity) and Cheap AI for Workplace for the use of the Cheap AI for Workplace plugin ("the Software"). By installing, copying, or otherwise using the Software, you agree to be bound by the terms of this EULA.</p>
 
         <h2>2. License Grant</h2>
-        <p>Cheap AI for Jira grants you a limited, non-exclusive, non-transferable, revocable license to use the Software solely for your internal business purposes within Atlassian Jira instances that you own or manage.</p>
+        <p>Cheap AI for Workplace grants you a limited, non-exclusive, non-transferable, revocable license to use the Software solely for your internal business purposes within Atlassian Jira instances that you own or manage.</p>
 
         <h2>3. Description of Service</h2>
-        <p>The Software integrates with Atlassian Jira to:
+        <p>The Software integrates with Atlassian workspace to:
             <ul>
                 <li>Extract issue data including summaries, descriptions, comments, and metadata</li>
                 <li>Fetch related issues through Jira's linking system</li>
@@ -100,44 +126,44 @@
 
         <h2>4. Data Privacy & Security</h2>
         <p>
-            <strong>4.1 Local Processing:</strong> All data processing occurs within your Jira instance. No issue data is transmitted to external servers operated by Cheap AI for Jira.<br>
-            <strong>4.2 Third-Party AI Services:</strong> When you paste prompts into external AI tools, their terms of service and privacy policies apply. Cheap AI for Jira is not responsible for data handling by third-party AI providers.<br>
-            <strong>4.3 No Data Retention:</strong> We do not store, log, or retain any of your Jira data. Prompt generation is performed in real-time and temporarily in memory only.
+            <strong>4.1 Local Processing:</strong> All data processing occurs within your workspace instance. No issue data is transmitted to external servers operated by Cheap AI for Workplace.<br>
+            <strong>4.2 Third-Party AI Services:</strong> When you paste prompts into external AI tools, their terms of service and privacy policies apply. Cheap AI for Workplace is not responsible for data handling by third-party AI providers.<br>
+            <strong>4.3 No Data Retention:</strong> We do not store, log, or retain any of your workspace data. Prompt generation is performed in real-time and temporarily in memory only.
         </p>
 
         <h2>5. User Obligations</h2>
         <p>You agree to:
             <ul>
                 <li>Comply with your organization's data security policies when using the Software</li>
-                <li>Ensure you have proper authorization to access the Jira issues processed</li>
+                <li>Ensure you have proper authorization to access the workspace issues processed</li>
                 <li>Not use the Software to process sensitive personal data unless explicitly authorized</li>
                 <li>Not modify, reverse engineer, or decompile the Software</li>
             </ul>
         </p>
 
         <h2>6. Disclaimer of Warranty</h2>
-        <p>THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. CHEAP AI FOR JIRA DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE, UNINTERRUPTED, OR THAT AI-GENERATED PROMPTS WILL MEET YOUR SPECIFIC REQUIREMENTS. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.</p>
+        <p>THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. CHEAP AI for Workplace DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE, UNINTERRUPTED, OR THAT AI-GENERATED PROMPTS WILL MEET YOUR SPECIFIC REQUIREMENTS. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.</p>
 
         <h2>7. Limitation of Liability</h2>
-        <p>IN NO EVENT SHALL CHEAP AI FOR JIRA BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS INTERRUPTION, ARISING OUT OF OR IN CONNECTION WITH THIS EULA OR THE USE OF THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+        <p>IN NO EVENT SHALL CHEAP AI for Workplace BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR BUSINESS INTERRUPTION, ARISING OUT OF OR IN CONNECTION WITH THIS EULA OR THE USE OF THE SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
 
         <h2>8. Termination</h2>
-        <p>This EULA is effective until terminated. You may terminate it at any time by uninstalling the Software. Cheap AI for Jira may terminate this EULA if you fail to comply with any term or condition. Upon termination, you must cease all use of the Software and destroy all copies.</p>
+        <p>This EULA is effective until terminated. You may terminate it at any time by uninstalling the Software. Cheap AI for Workplace may terminate this EULA if you fail to comply with any term or condition. Upon termination, you must cease all use of the Software and destroy all copies.</p>
 
         <h2>9. Pricing and Payment</h2>
-        <p>Cheap AI for Jira is offered as a paid plugin through the Atlassian Marketplace. Pricing is subject to change with 30 days' notice. All payments are processed through Atlassian's billing system and are subject to Atlassian's terms of service.</p>
+        <p>Cheap AI for Workplace is offered as a paid plugin through the Atlassian Marketplace. Pricing is subject to change with 30 days' notice. All payments are processed through Atlassian's billing system and are subject to Atlassian's terms of service.</p>
 
         <h2>10. Updates and Support</h2>
-        <p>Cheap AI for Jira may provide updates, bug fixes, or enhancements at our discretion. Support is provided via email at contactcheapai@gmail.com during business hours (EST, Mon-Fri).</p>
+        <p>Cheap AI for Workplace may provide updates, bug fixes, or enhancements at our discretion. Support is provided via email at contactcheapai@gmail.com during business hours (EST, Mon-Fri).</p>
 
         <h2>11. Intellectual Property</h2>
-        <p>All intellectual property rights in the Software are owned by Cheap AI for Jira. This EULA does not grant you any rights to trademarks, service marks, or logos of Cheap AI for Jira or Atlassian.</p>
+        <p>All intellectual property rights in the Software are owned by Cheap AI for Workplace. This EULA does not grant you any rights to trademarks, service marks, or logos of Cheap AI for Workplace or Atlassian.</p>
 
         <h2>12. Miscellaneous</h2>
         <p>
             <strong>Governing Law:</strong> This EULA shall be governed by the laws of Delaware, USA.<br>
             <strong>Severability:</strong> If any provision is held invalid, the remaining provisions shall remain in effect.<br>
-            <strong>Entire Agreement:</strong> This EULA constitutes the entire agreement between you and Cheap AI for Jira.
+            <strong>Entire Agreement:</strong> This EULA constitutes the entire agreement between you and Cheap AI for Workplace.
         </p>
 
         <h2>13. Contact Information</h2>
@@ -145,7 +171,47 @@
         <strong>Email:</strong> contactcheapai@gmail.com<br>
         <strong>Response Time:</strong> Within 2 business days</p>
 
+        <a href="sla.html" style="margin-right: 20px;">Service Level Agreement</a>
+        <a href="support-policy.html" style="margin-right: 20px;">Support Policy</a>
+        <a href="privacy-policy.html" style="margin-right: 20px;">Privacy Policy</a>
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyze site usage and improve your experience. By continuing, you consent to our use of cookies as described in our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="acceptCookies">Accept</button>
+                <button class="cookie-btn cookie-reject" id="rejectCookies">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const rejectBtn = document.getElementById('rejectCookies');
+            
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            
+            if (!cookieChoice) {
+                cookieBanner.classList.add('show');
+            }
+            
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+            
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cheap AI for Jira - Jira plugin for intelligent prompt generation">
-    <title>Cheap AI for Jira - Fast prompts, tiny price</title>
+    <meta name="description" content="Cheap AI for Workplace - Jira plugin for intelligent prompt generation">
+    <title>Cheap AI for Workplace - Fast prompts, tiny price</title>
     <style>
         * {
             margin: 0;
@@ -343,6 +343,33 @@
             min-height: 150px;
         }
 
+        /* GDPR Checkbox Styling */
+        .gdpr-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .gdpr-consent input[type="checkbox"] {
+            width: auto;
+            margin-top: 5px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .gdpr-consent label {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: var(--light);
+            margin-bottom: 0;
+        }
+
+        .gdpr-consent a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
         button[type="submit"] {
             width: 100%;
             padding: 15px;
@@ -359,6 +386,86 @@
         button[type="submit"]:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 20px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-banner.show {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .cookie-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cookie-accept {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+        }
+
+        .cookie-reject {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .cookie-btn:hover {
+            transform: translateY(-2px);
         }
 
         /* Footer */
@@ -396,6 +503,10 @@
                 margin-left: 20px;
                 font-size: 0.9rem;
             }
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -404,12 +515,13 @@
 
     <nav>
         <div class="container">
-            <a href="#home" class="logo">Cheap AI for Jira</a>
+            <a href="#home" class="logo">Cheap AI for Workplace</a>
             <div class="nav-links">
                 <a href="#problem">Problem</a>
                 <a href="#solution">Solution</a>
                 <a href="#features">Features</a>
                 <a href="#contact">Contact</a>
+                <a href="privacy-policy.html">Privacy</a>
             </div>
         </div>
     </nav>
@@ -419,9 +531,9 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Cheap AI for Jira</h1>
+                    <h1>Cheap AI for Workplace</h1>
                     <p class="slogan">Fast prompts, tiny price</p>
-                    <p>Transform your Jira workflow with intelligent AI prompt generation. Stop manually copying issue data—let Cheap AI for Jira do the heavy lifting.</p>
+                    <p>Transform your workspace workflow with intelligent AI prompt generation. Stop manually copying issue data—let Cheap AI for Workplace do the heavy lifting.</p>
                     <a href="#solution" class="cta-button">See How It Works</a>
                 </div>
             </div>
@@ -432,7 +544,7 @@
             <div class="container">
                 <h2>The Challenge</h2>
                 <p style="text-align: center; font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9;">
-                    Your team wastes hours manually extracting Jira issue details, hunting down linked dependencies, and formatting everything for AI tools. It's error-prone, slow, and breaks your workflow.
+                    Your team wastes hours manually extracting workspace issue details, hunting down linked dependencies, and formatting everything for AI tools. It's error-prone, slow, and breaks your workflow.
                 </p>
                 <div class="problem-grid">
                     <div class="problem-card">
@@ -445,7 +557,7 @@
                     </div>
                     <div class="problem-card">
                         <h3>🔁 Workflow Disruption</h3>
-                        <p>Constant context-switching between Jira and AI tools breaks developer focus and productivity.</p>
+                        <p>Constant context-switching between workspace and AI tools breaks developer focus and productivity.</p>
                     </div>
                 </div>
             </div>
@@ -457,8 +569,8 @@
                 <h2>Our Smart Solution</h2>
                 <div class="solution-content">
                     <div class="solution-text">
-                        <h3>Intelligent Jira-to-AI Bridge</h3>
-                        <p>Cheap AI for Jira seamlessly integrates with your Jira instance, automatically aggregating issue data and transforming it into structured, context-rich AI prompts.</p>
+                        <h3>Intelligent workspace-to-AI Bridge</h3>
+                        <p>Cheap AI for Workplace seamlessly integrates with your workspace instance, automatically aggregating issue data and transforming it into structured, context-rich AI prompts.</p>
                         <ul>
                             <li>Instantly fetches main issue details, comments, and metadata</li>
                             <li>Recursively gathers all linked issues (epics, dependencies, blockers)</li>
@@ -470,9 +582,9 @@
                     <div class="solution-visual">
                         <div class="code-mock">
                             <div class="comment">// Before: Manual Process</div>
-                            <div>• Open Jira issue<br>• Copy summary, description<br>• Find linked issues<br>• Copy each linked issue<br>• Format prompt manually<br>• <span class="keyword">30 minutes wasted</span></div>
+                            <div>• Open workspace issue<br>• Copy summary, description<br>• Find linked issues<br>• Copy each linked issue<br>• Format prompt manually<br>• <span class="keyword">30 minutes wasted</span></div>
                             <br>
-                            <div class="comment">// After: Cheap AI for Jira</div>
+                            <div class="comment">// After: Cheap AI for Workplace</div>
                             <div>• Click plugin icon<br>• <span class="keyword">✨ Instant prompt generated</span><br>• Paste into AI tool<br>• <span class="keyword">30 seconds total</span></div>
                         </div>
                     </div>
@@ -483,7 +595,7 @@
         <!-- Features Section -->
         <section id="features">
             <div class="container">
-                <h2>Why Choose Cheap AI for Jira?</h2>
+                <h2>Why Choose Cheap AI for Workplace?</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="icon">⚡</div>
@@ -503,7 +615,7 @@
                     <div class="feature-card">
                         <div class="icon">🔒</div>
                         <h3>Secure & Private</h3>
-                        <p>Your data stays within your Jira instance. No external servers, no data retention.</p>
+                        <p>Your data stays within your workspace instance. No external servers, no data retention.</p>
                     </div>
                     <div class="feature-card">
                         <div class="icon">🎯</div>
@@ -513,7 +625,7 @@
                     <div class="feature-card">
                         <div class="icon">🔧</div>
                         <h3>Zero Config</h3>
-                        <p>Install and go. Works out-of-the-box with your existing Jira setup.</p>
+                        <p>Install and go. Works out-of-the-box with your existing workspace setup.</p>
                     </div>
                 </div>
             </div>
@@ -526,16 +638,16 @@
                 <div class="contact-section">
                     <form action="https://formsubmit.co/contactcheapai@gmail.com" method="POST">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://eortner.github.io/cheap-ai-web/">
-                        <input type="hidden" name="_subject" value="New Cheap AI for Jira Inquiry">
+                        <input type="hidden" name="_next" value="https://yourusername.github.io/cheap-ai/">
+                        <input type="hidden" name="_subject" value="New Cheap AI for Workplace Inquiry">
                         
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Jane Smith">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email Address</label>
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required placeholder="jane@company.com">
                         </div>
 
@@ -545,8 +657,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required placeholder="Tell us about your Jira workflow needs..."></textarea>
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your workspace workflow needs..."></textarea>
+                        </div>
+
+                        <!-- GDPR Consent Checkbox -->
+                        <div class="gdpr-consent">
+                            <input type="checkbox" id="gdpr" name="_gdpr" required>
+                            <label for="gdpr">
+                                I consent to having this website store my submitted information so they can respond to my inquiry, and I understand my data will be processed according to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. *
+                            </label>
                         </div>
 
                         <button type="submit">Send Message →</button>
@@ -558,12 +678,50 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Cheap AI for Jira. All rights reserved. | 
+            <p>&copy; 2025 Cheap AI for Workplace. All rights reserved. | 
                <a href="support-policy.html">Support Policy</a> | 
                <a href="sla.html">Service Level Agreement</a> | 
+               <a href="privacy-policy.html">Privacy Policy</a> | 
                <a href="eula.html">End User License Agreement</a>
             </p>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyze site usage and improve your experience. By continuing, you consent to our use of cookies as described in our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="acceptCookies">Accept</button>
+                <button class="cookie-btn cookie-reject" id="rejectCookies">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const rejectBtn = document.getElementById('rejectCookies');
+            
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            
+            if (!cookieChoice) {
+                cookieBanner.classList.add('show');
+            }
+            
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+            
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>

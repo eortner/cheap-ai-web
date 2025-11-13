@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Cheap AI for Workplace</title>
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --dark: #0a1929;
+            --darker: #051423;
+            --light: #e6f7ff;
+            --warning: #ff9500;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            background: var(--darker);
+            color: var(--light);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(10, 25, 41, 0.8);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: var(--accent);
+            margin: 25px 0 15px;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 30px;
+        }
+
+        .warning {
+            background: rgba(255, 149, 0, 0.1);
+            border: 1px solid rgba(255, 149, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .warning strong {
+            color: var(--warning);
+        }
+
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+            margin: 25px 0;
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), #0099cc);
+            color: var(--darker);
+            border-radius: 8px;
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 20px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+        .cookie-banner.show { display: block; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .cookie-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .cookie-text { flex: 1; min-width: 300px; }
+        .cookie-text p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+        .cookie-text a { color: var(--primary); text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 10px; }
+        .cookie-btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .cookie-accept { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--darker); }
+        .cookie-reject { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+        .cookie-btn:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terms of Service</h1>
+        <p><strong>Last Updated:</strong> January 1, 2025</p>
+        <p><strong>Effective Date:</strong> January 1, 2025</p>
+
+        <div class="warning">
+            <strong>⚠️ Legal Notice:</strong> This Terms of Service is a template for demonstration purposes. Have it reviewed by legal counsel before use for your commercial product, especially before listing on the Atlassian Marketplace.
+        </div>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By installing, accessing, or using Cheap AI for Workplace ("the Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, you must not use the Service. These Terms apply to all users of the Service, including individual users and organizations.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>Cheap AI for Workplace is a Jira plugin that:</p>
+        <ul>
+            <li>Automatically extracts issue data (summaries, descriptions, comments, metadata) from your Jira instance</li>
+            <li>Recursively fetches linked issues (epics, dependencies, blockers) through Jira's linking system</li>
+            <li>Transforms aggregated data into structured AI prompts optimized for language models</li>
+            <li>Provides one-click copying of generated prompts to your clipboard</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h3>🔒 Privacy-First Architecture</h3>
+            <p><strong>Critical:</strong> All data processing occurs <strong>exclusively within your Jira instance</strong>. No issue data is transmitted to external servers operated by Cheap AI for Workplace. Prompt generation happens client-side in your browser and is temporarily held in memory only. We have <strong>zero access</strong> to your Jira data.</p>
+        </div>
+
+        <h2>3. Account Registration & Access</h2>
+        <p>Access to the Service is provided through:</p>
+        <ul>
+            <li><strong>Atlassian Marketplace:</strong> You must have an active Atlassian account and Jira instance</li>
+            <li><strong>License Key:</strong> A valid license purchased through Atlassian Marketplace is required</li>
+            <li><strong>Authorization:</strong> You must have administrative privileges to install the plugin in your Jira instance</li>
+        </ul>
+
+        <h2>4. License & Usage Rights</h2>
+        <p>Subject to these Terms and your payment of applicable fees, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+        <ul>
+            <li>Install and use the Service within your authorized Jira instance(s)</li>
+            <li>Generate AI prompts from your Jira data for internal business purposes</li>
+            <li>Copy and use generated prompts with third-party AI tools at your discretion</li>
+        </ul>
+
+        <p><strong>Restrictions:</strong> You may not:</p>
+        <ul>
+            <li>Modify, reverse engineer, decompile, or create derivative works of the Service</li>
+            <li>Distribute, sublicense, or resell the Service to third parties</li>
+            <li>Use the Service for purposes other than those explicitly permitted</li>
+            <li>Use the Service in violation of Atlassian's Terms of Service or Acceptable Use Policy</li>
+        </ul>
+
+        <h2>5. Fees & Payment</h2>
+        <p>Access to Cheap AI for Workplace is provided on a subscription basis:</p>
+        <ul>
+            <li><strong>Billing:</strong> All fees are processed through Atlassian Marketplace</li>
+            <li><strong>Currency:</strong> USD or local currency as determined by Atlassian</li>
+            <li><strong>Auto-Renewal:</strong> Subscriptions automatically renew unless canceled</li>
+            <li><strong>Price Changes:</strong> We may change pricing with 30 days' notice</li>
+            <li><strong>Refunds:</strong> Subject to Atlassian's refund policy (typically 30-day money-back guarantee)</li>
+        </ul>
+
+        <h2>6. Data Handling & Privacy</h2>
+        <p>Your privacy is central to our service design. Our commitment:</p>
+
+        <table>
+            <tr>
+                <th>Data Type</th>
+                <th>What We Do</th>
+                <th>What We Don't Do</th>
+            </tr>
+            <tr>
+                <td>Jira Issue Data</td>
+                <td>Process temporarily in memory within your instance to generate prompts</td>
+                <td>Never transmit, store, log, or retain on our servers</td>
+            </tr>
+            <tr>
+                <td>User Information</td>
+                <td>Store only support contact details (email, name) for 90 days</td>
+                <td>Sell, share, or use for marketing without consent</td>
+            </tr>
+            <tr>
+                <td>Analytics</td>
+                <td>Use GitHub Pages analytics (IP, browser) for site improvement</td>
+                <td>Track individual users or link analytics to identities</td>
+            </tr>
+        </table>
+
+        <p><strong>Your Responsibilities:</strong></p>
+        <ul>
+            <li>You are responsible for ensuring your use of third-party AI tools complies with their terms and your organization's policies</li>
+            <li>You must not submit sensitive personal data (health, financial, etc.) through our support forms</li>
+            <li>You consent to our use of FormSubmit.co for email delivery (see their privacy policy)</li>
+        </ul>
+
+        <h2>7. Support & Service Levels</h2>
+        <p>Support is provided according to our <a href="support-policy.html">Support Policy</a> and <a href="sla.html">Service Level Agreement</a>:</p>
+        <ul>
+            <li><strong>Support Hours:</strong> Monday-Friday, 12:00 PM - 2:00 PM EST</li>
+            <li><strong>Response Time:</strong> Within 7 business days</li>
+            <li><strong>Channels:</strong> Email (contactcheapai@gmail.com) or web form at cheap-ai.net</li>
+        </ul>
+
+        <h2>8. Modifications to Service</h2>
+        <p>We reserve the right to modify or discontinue the Service at any time:</p>
+        <ul>
+            <li><strong>Feature Changes:</strong> We may add, remove, or modify features with 30 days' notice</li>
+            <li><strong>API Changes:</strong> If Atlassian changes Jira APIs, we will attempt to maintain compatibility but cannot guarantee it</li>
+            <li><strong>Deprecation:</strong> We may deprecate older versions with 90 days' notice</li>
+        </ul>
+
+        <h2>9. Termination</h2>
+        <p>Either party may terminate the Service relationship:</p>
+        <ul>
+            <li><strong>By You:</strong> Cancel your subscription through Atlassian Marketplace at any time</li>
+            <li><strong>By Us:</strong> We may terminate for violation of these Terms with 30 days' notice</li>
+            <li><strong>Effect:</strong> Upon termination, your license immediately ends and you must uninstall the plugin</li>
+            <li><strong>No Refund:</strong> Termination does not entitle you to refunds except as provided by Atlassian's policy</li>
+        </ul>
+
+        <h2>10. Disclaimer of Warranties</h2>
+        <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+        <ul>
+            <li>Warranties of merchantability, fitness for a particular purpose, or non-infringement</li>
+            <li>Guarantees that the Service will be error-free, uninterrupted, or meet your requirements</li>
+            <li>Assurances regarding the accuracy, reliability, or quality of AI-generated prompts</li>
+            <li>Promises of compatibility with all Jira configurations or third-party plugins</li>
+        </ul>
+
+        <h2>11. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, CHEAP AI FOR WORKPLACE SHALL NOT BE LIABLE FOR:</p>
+        <ul>
+            <li>Indirect, incidental, special, consequential, or punitive damages</li>
+            <li>Loss of profits, data, business interruption, or goodwill</li>
+            <li>Costs of procurement of substitute services</li>
+            <li>Any damages arising from your use of third-party AI tools</li>
+        </ul>
+        <p><strong>Cap:</strong> Our total liability shall not exceed the amount you paid for the Service in the 12 months preceding the claim.</p>
+
+        <h2>12. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Cheap AI for Workplace from any claims, damages, or expenses arising from:</p>
+        <ul>
+            <li>Your violation of these Terms</li>
+            <li>Your misuse of the Service</li>
+            <li>Your violation of any third-party rights (including Atlassian's)</li>
+            <li>Your processing of data in violation of applicable laws</li>
+        </ul>
+
+        <h2>13. Third-Party Services</h2>
+        <p>The Service is designed to work with third-party AI tools (ChatGPT, Claude, etc.). You acknowledge that:</p>
+        <ul>
+            <li>These tools have separate terms and privacy policies</li>
+            <li>We are not responsible for their data handling practices</li>
+            <li>Your use of these tools is at your own risk</li>
+        </ul>
+
+        <h2>14. Compliance with Atlassian Terms</h2>
+        <p>Your use of the Service must comply with:</p>
+        <ul>
+            <li>Atlassian Customer Agreement or Atlassian Cloud Terms</li>
+            <li>Atlassian Acceptable Use Policy</li>
+            <li>Atlassian Marketplace Terms of Use</li>
+            <li>Atlassian Developer Terms</li>
+        </ul>
+        <p>In case of conflict between these Terms and Atlassian's terms, Atlassian's terms shall prevail.</p>
+
+        <h2>15. Governing Law & Dispute Resolution</h2>
+        <ul>
+            <li><strong>Governing Law:</strong> These Terms are governed by the laws of Delaware, USA, without regard to conflict of law principles</li>
+            <li><strong>Jurisdiction:</strong> Any disputes must be brought in the state or federal courts located in Delaware</li>
+            <li><strong>Arbitration:</strong> We may (but are not obligated to) offer binding arbitration for disputes under $10,000</li>
+        </ul>
+
+        <h2>16. Changes to Terms</h2>
+        <p>We may modify these Terms at any time:</p>
+        <ul>
+            <li>Changes will be posted on this page with a new "Last Updated" date</li>
+            <li>Material changes will be notified via email with 30 days' notice</li>
+            <li>Continued use after changes constitutes acceptance of new Terms</li>
+            <li>If you disagree with changes, you must stop using the Service</li>
+        </ul>
+
+        <h2>17. General Provisions</h2>
+        <ul>
+            <li><strong>Entire Agreement:</strong> These Terms, plus the EULA, SLA, Support Policy, and Privacy Policy constitute the entire agreement</li>
+            <li><strong>Severability:</strong> If any provision is invalid, remaining provisions remain in effect</li>
+            <li><strong>Waiver:</strong> Failure to enforce any provision does not constitute waiver</li>
+            <li><strong>Assignment:</strong> You may not assign these Terms without our consent</li>
+            <li><strong>Force Majeure:</strong> We are not liable for failures due to events beyond our control</li>
+        </ul>
+
+        <h2>18. Contact Information</h2>
+        <p>For questions about these Terms:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:contactcheapai@gmail.com">contactcheapai@gmail.com</a></li>
+            <li><strong>Response Time:</strong> Within 7 business days per our Support Policy</li>
+            <li><strong>Legal Address:</strong> [ADD YOUR BUSINESS ADDRESS BEFORE PUBLISHING]</li>
+        </ul>
+
+        <a href="privacy-policy.html" style="margin-right: 20px;">Privacy Policy</a>
+        <a href="support-policy.html" style="margin-right: 20px;">Support Policy</a>
+        <a href="sla.html" style="margin-right: 20px;">Service Level Agreement</a>
+        <a href="eula.html" style="margin-right: 20px;">End User License Agreement</a>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyze site usage and improve your experience. By continuing, you consent to our use of cookies as described in our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="acceptCookies">Accept</button>
+                <button class="cookie-btn cookie-reject" id="rejectCookies">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const rejectBtn = document.getElementById('rejectCookies');
+            
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            
+            if (!cookieChoice) {
+                cookieBanner.classList.add('show');
+            }
+            
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+            
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>

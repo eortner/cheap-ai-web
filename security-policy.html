@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Policy - Cheap AI for Workplace</title>
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --dark: #0a1929;
+            --darker: #051423;
+            --light: #e6f7ff;
+            --warning: #ff9500;
+            --success: #00ff88;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            background: var(--darker);
+            color: var(--light);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(10, 25, 41, 0.8);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: var(--accent);
+            margin: 25px 0 15px;
+        }
+
+        p, li {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 30px;
+        }
+
+        .warning {
+            background: rgba(255, 149, 0, 0.1);
+            border: 1px solid rgba(255, 149, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .warning strong {
+            color: var(--warning);
+        }
+
+        .security-box {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--success);
+            margin: 25px 0;
+        }
+
+        .security-box h3 {
+            margin-top: 0;
+            color: var(--success);
+        }
+
+        .threat-box {
+            background: rgba(255, 68, 68, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4444;
+            margin: 25px 0;
+        }
+
+        .threat-box h3 {
+            color: #ff4444;
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary), #0099cc);
+            color: var(--darker);
+            border-radius: 8px;
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 25, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 20px;
+            z-index: 9999;
+            display: none;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+        .cookie-banner.show { display: block; animation: slideUp 0.3s ease-out; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .cookie-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .cookie-text { flex: 1; min-width: 300px; }
+        .cookie-text p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+        .cookie-text a { color: var(--primary); text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 10px; }
+        .cookie-btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .cookie-accept { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--darker); }
+        .cookie-reject { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+        .cookie-btn:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Security Policy</h1>
+        <p><strong>Last Updated:</strong> January 1, 2025</p>
+        <p><strong>Version:</strong> 1.0</p>
+
+        <h2>1. Security Architecture</h2>
+        <p>Cheap AI for Workplace is designed with a privacy-first, zero-trust architecture that ensures your data never leaves your Jira instance.</p>
+
+        <div class="security-box">
+            <h3>🔒 Core Security Design Principles</h3>
+            <ul>
+                <li><strong>Zero Data Exfiltration:</strong> No Jira issue data is ever transmitted to external servers</li>
+                <li><strong>Zero Data Retention:</strong> We cannot access, store, or log your Jira data</li>
+                <li><strong>Local Processing Only:</strong> All prompt generation occurs client-side in your browser's memory</li>
+                <li><strong>Network Isolation:</strong> The plugin makes zero external network calls</li>
+                <li><strong>Credential-Free:</strong> No API keys, tokens, or credentials are stored by the plugin</li>
+                <li><strong>Memory-Only Processing:</strong> Data exists only in RAM during active session, then permanently discarded</li>
+            </ul>
+        </div>
+
+        <h2>2. Data Protection Measures</h2>
+        <h3>2.1 In-Transit Protection</h3>
+        <ul>
+            <li>All Jira API calls use HTTPS/TLS encryption provided by your Jira instance</li>
+            <li>Contact form submissions use TLS 1.3 encryption to FormSubmit.co</li>
+            <li>Website served over HTTPS via GitHub Pages</li>
+        </ul>
+
+        <h3>2.2 At-Rest Protection</h3>
+        <p><strong>Critical:</strong> We do not store any of your Jira data at rest. The only data we retain is:</p>
+        <ul>
+            <li>Support communications (90 days, then auto-deleted)</li>
+            <li>Contact form submissions (90 days, then manually deleted)</li>
+            <li>No databases, logs, or file storage of customer data</li>
+        </ul>
+
+        <h3>2.3 Processing Security</h3>
+        <ul>
+            <li>Prompt generation occurs entirely in-memory using JavaScript (no server-side processing)</li>
+            <li>Clipboard operations use browser's secure Clipboard API</li>
+            <li>No temporary files or caches written to disk</li>
+        </ul>
+
+        <h2>3. Vulnerability Management</h2>
+        <h3>3.1 Security Testing & Assessment</h3>
+        <table>
+            <tr>
+                <th>Activity</th>
+                <th>Frequency</th>
+                <th>Scope</th>
+            </tr>
+            <tr>
+                <td>Code Security Review</td>
+                <td>Every release</td>
+                <td>Static analysis for OWASP Top 10 vulnerabilities</td>
+            </tr>
+            <tr>
+                <td>Dependency Scanning</td>
+                <td>Weekly</td>
+                <td>NPM packages for known CVEs</td>
+            </tr>
+            <tr>
+                <td>Penetration Testing</td>
+                <td>Annually</td>
+                <td>Plugin installation and operation</td>
+            </tr>
+            <tr>
+                <td>Atlassian Security Check</td>
+                <td>Per Marketplace submission</td>
+                <td>Automated scans and manual review</td>
+            </tr>
+        </table>
+
+        <h3>3.2 Vulnerability Disclosure Program</h3>
+        <p>We welcome security researchers to report vulnerabilities:</p>
+        <ul>
+            <li><strong>Reporting Email:</strong> <a href="mailto:contactcheapai+security@gmail.com">contactcheapai+security@gmail.com</a></li>
+            <li><strong>Response SLA:</strong> Initial response within 48 hours, resolution within 30 days for confirmed issues</li>
+            <li><strong>Safe Harbor:</strong> We support responsible disclosure and will not pursue legal action for good-faith security research</li>
+            <li><strong>Scope:</strong> Plugin code, website, and email infrastructure (excludes Jira platform itself)</li>
+        </ul>
+
+        <div class="threat-box">
+            <h3>⚠️ Out of Scope</h3>
+            <ul>
+                <li>Atlassian Jira platform vulnerabilities (report to Atlassian directly)</li>
+                <li>Self-XSS or issues requiring user interaction to exploit</li>
+                <li>Rate limiting on contact form (we use FormSubmit.co's protections)</li>
+                <li>GitHub Pages infrastructure issues (report to GitHub)</li>
+            </ul>
+        </div>
+
+        <h3>3.3 Security Updates</h3>
+        <ul>
+            <li>Critical security patches released within 48 hours of fix availability</li>
+            <li>Automatic notifications sent to all active license holders</li>
+            <li>Rollout via Atlassian Marketplace update mechanism</li>
+        </ul>
+
+        <h2>4. Compliance & Certifications</h2>
+        <h3>4.1 Atlassian Marketplace Requirements</h3>
+        <ul>
+            <li>✅ Complies with Atlassian Developer Terms and Marketplace Partner Agreement</li>
+            <li>✅ Passed Atlassian's automated security scans (no malicious code, no data exfiltration)</li>
+            <li>✅ Meets data handling requirements for Cloud Fortified program eligibility</li>
+            <li>✅ Annual security self-assessment completed</li>
+        </ul>
+
+        <h3>4.2 Standards Alignment</h3>
+        <ul>
+            <li><strong>OWASP Top 10:</strong> Designed to prevent all category vulnerabilities</li>
+            <li><strong>GDPR Article 32:</strong> Appropriate technical measures for data protection</li>
+            <li><strong>SOC 2 Type II:</strong> Architecture aligns with Trust Service Criteria (though not formally audited)</li>
+        </ul>
+
+        <h2>5. Infrastructure Security</h2>
+        <h3>5.1 Website (cheap-ai.net / GitHub Pages)</h3>
+        <ul>
+            <li>HTTPS enforced (TLS 1.2/1.3 only)</li>
+            <li>DDoS protection via GitHub's infrastructure</li>
+            <li>No server-side code execution (static HTML/CSS/JS only)</li>
+            <li>SRI (Subresource Integrity) for all external scripts</li>
+            <li>Content Security Policy headers enforced</li>
+        </ul>
+
+        <h3>5.2 Email Infrastructure</h3>
+        <ul>
+            <li>FormSubmit.co used for contact form processing (their security standards apply)</li>
+            <li>Gmail for support email with 2FA enabled</li>
+            <li>No storage of sensitive data in email archives</li>
+        </ul>
+
+        <h2>6. Incident Response</h2>
+        <h3>6.1 Security Incident Definition</h3>
+        <p>Any event that compromises the confidentiality, integrity, or availability of:</p>
+        <ul>
+            <li>Our plugin code or distribution mechanism</li>
+            <li>Website or email infrastructure</li>
+            <li>Customer support communications</li>
+        </ul>
+
+        <h3>6.2 Incident Response Process</h3>
+        <table>
+            <tr>
+                <th>Phase</th>
+                <th>Action</th>
+                <th>Timeline</th>
+            </tr>
+            <tr>
+                <td>Detection</td>
+                <td>Monitor for anomalies via user reports and automated scans</td>
+                <td>Continuous</td>
+            </tr>
+            <tr>
+                <td>Containment</td>
+                <td>Isolate affected systems, revoke access if compromised</td>
+                <td>Within 1 hour</td>
+            </tr>
+            <tr>
+                <td>Investigation</td>
+                <td>Root cause analysis, impact assessment</td>
+                <td>Within 24 hours</td>
+            </tr>
+            <tr>
+                <td>Notification</td>
+                <td>Notify affected parties (if any) and Atlassian if Marketplace impact</td>
+                <td>Within 48 hours</td>
+            </tr>
+            <tr>
+                <td>Remediation</td>
+                <td>Patch, update, and verify fix</td>
+                <td>Within 30 days</td>
+            </tr>
+        </table>
+
+        <h3>6.3 Customer Notification</h3>
+        <p>We will notify you if we become aware of any security incident affecting:</p>
+        <ul>
+            <li>Your data (though we have no access to your Jira data)</li>
+            <li>The plugin's integrity or distribution mechanism</li>
+            <li>Any vulnerability that could affect your Jira instance</li>
+        </ul>
+
+        <h2>7. User Security Responsibilities</h2>
+        <p>While we ensure our service is secure, you are responsible for:</p>
+        <ul>
+            <li><strong>Access Control:</strong> Managing user permissions to install and use plugins in your Jira instance</li>
+            <li><strong>Network Security:</strong> Ensuring your Jira instance is accessible only via secure networks</li>
+            <li><strong>Updates:</strong> Keeping Jira and the plugin updated to latest versions</li>
+            <li><strong>AI Tool Security:</strong> Securing credentials for third-party AI tools you use</li>
+            <li><strong>Data Classification:</strong> Not processing highly sensitive data without proper authorization</li>
+        </ul>
+
+        <h2>8. Security Best Practices</h2>
+        <div class="security-box">
+            <h3>✅ Recommended Configuration</h3>
+            <ul>
+                <li>Install plugin only from official Atlassian Marketplace</li>
+                <li>Review plugin permissions during installation (only requests read-only access to issues)</li>
+                <li>Regularly audit plugin usage in your instance</li>
+                <li>Monitor clipboard usage for sensitive data handling</li>
+                <li>Use AI tools that offer enterprise-grade security and data handling</li>
+            </ul>
+        </div>
+
+        <h2>9. Audit & Compliance Reports</h2>
+        <p>Available upon request for enterprise customers:</p>
+        <ul>
+            <li>Security architecture diagram</li>
+            <li>Most recent penetration test summary (sanitized)</li>
+            <li>Third-party security assessment (if available)</li>
+            <li>Compliance mapping to SOC 2 / ISO 27001 (if needed)</li>
+        </ul>
+        <p><em>Requests take 5-7 business days to process. Available to customers with active licenses.</em></p>
+
+        <h2>10. Bug Bounty Program</h2>
+        <p>While we are not currently part of Atlassian's official Marketplace Bug Bounty program, we offer rewards for critical security findings:</p>
+        <ul>
+            <li><strong>Critical (RCE, data breach):</strong> $100-$500 reward</li>
+            <li><strong>High (privilege escalation):</strong> $50-$100 reward</li>
+            <li><strong>Medium (XSS, info disclosure):</strong> $25-$50 reward</li>
+            <li><strong>Rewards paid</strong> via PayPal or Atlassian credit after fix verification</li>
+        </ul>
+
+        <h2>11. Security Contact</h2>
+        <p>For all security-related inquiries:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:contactcheapai+security@gmail.com">contactcheapai+security@gmail.com</a></li>
+            <li><strong>Response Time:</strong> 48 hours for security issues (24 hours for critical)</li>
+            <li><strong>PGP Key:</strong> Available upon request for encrypted communications</li>
+            <li><strong>Do NOT use</strong> this email for general support questions</li>
+        </ul>
+
+        <a href="terms-of-service.html" style="margin-right: 20px;">Terms of Service</a>
+        <a href="support-policy.html" style="margin-right: 20px;">Support Policy</a>
+        <a href="sla.html" style="margin-right: 20px;">Service Level Agreement</a>
+        <a href="privacy-policy.html" style="margin-right: 20px;">Privacy Policy</a>
+        <a href="eula.html" style="margin-right: 20px;">End User License Agreement</a>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to analyze site usage and improve your experience. By continuing, you consent to our use of cookies as described in our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="acceptCookies">Accept</button>
+                <button class="cookie-btn cookie-reject" id="rejectCookies">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const rejectBtn = document.getElementById('rejectCookies');
+            
+            const cookieChoice = localStorage.getItem('cookieConsent');
+            
+            if (!cookieChoice) {
+                cookieBanner.classList.add('show');
+            }
+            
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.classList.remove('show');
+            });
+            
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>

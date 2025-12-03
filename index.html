@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Cheap AI for Workplace - Jira plugin for intelligent prompt generation">
-    <title>Cheap AI for Workplace - Fast prompts, tiny price</title>
+    <title>Cheap AI - Smart AI Integration for Your Workflow</title>
     <style>
         * {
             margin: 0;
@@ -19,6 +19,7 @@
             --darker: #051423;
             --light: #e6f7ff;
             --accent: #00ff88;
+            --success: #00ff88;
         }
 
         body {
@@ -485,6 +486,99 @@
             text-decoration: underline;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--dark);
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .step-content h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .step-content img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -506,6 +600,19 @@
             .cookie-content {
                 flex-direction: column;
                 text-align: center;
+            }
+            .modal-content {
+                margin: 20px;
+                padding: 30px;
+            }
+            .step {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -658,7 +765,7 @@
             </div>
         </section>
 
-
+        <!-- Products Section -->
         <section id="products">
             <div class="container">
                 
@@ -671,12 +778,12 @@
                         Both plugins are <strong>strictly safe by design</strong>. They process everything locally in your browser—<strong>zero data storage, zero external transmission</strong>. You decide where your information goes, whether it's ChatGPT, Claude, or a private AI instance. Complete control, total privacy.
                     </p>
                 </div>
-        
+
                 <h2>Our Products</h2>
                 <p style="text-align: center; font-size: 1.2rem; max-width: 700px; margin: 0 auto 60px; opacity: 0.9;">
                     Two powerful plugins designed to make AI integration seamless, secure, and resource-efficient for modern teams.
                 </p>
-        
+
                 <!-- Product 1: Cheap AI for Workspace -->
                 <div style="margin-bottom: 100px;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
@@ -705,17 +812,14 @@
                                     You control the destination: use any AI tool you trust
                                 </li>
                             </ul>
-                            <a href="#workspace-demo" class="cta-button" style="padding: 12px 30px; font-size: 1rem;">See How It Works →</a>
+                            <a href="#workspaceModal" class="cta-button modal-trigger" style="padding: 12px 30px; font-size: 1rem;">See How It Works →</a>
                         </div>
                         <div style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 20px;">
-                            <!-- Replace with your actual screenshot -->
-                            <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; text-align: center; border: 2px dashed rgba(0, 212, 255, 0.3); border-radius: 10px;">
-                                [Your Cheap AI for Workspace<br>Screenshot Here]
-                            </div>
+                            <img src="img/01.jpg" alt="Cheap AI for Workspace Interface" style="width: 100%; height: auto; border-radius: 10px;">
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- Product 2: Cheap AI Creator -->
                 <div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
@@ -744,49 +848,24 @@
                                     Full control: AI generates issues, you approve before creation
                                 </li>
                             </ul>
-                            <a href="#creator-demo" class="cta-button" style="padding: 12px 30px; font-size: 1rem;">See How It Works →</a>
+                            <a href="#creatorModal" class="cta-button modal-trigger" style="padding: 12px 30px; font-size: 1rem;">See How It Works →</a>
                         </div>
                         <div style="order: 1; background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 20px;">
-                            <!-- Replace with your actual screenshot -->
-                            <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; text-align: center; border: 2px dashed rgba(0, 212, 255, 0.3); border-radius: 10px;">
-                                [Your Cheap AI Creator<br>Screenshot Here]
-                            </div>
+                            <img src="img/05.jpg" alt="Cheap AI Creator Interface" style="width: 100%; height: auto; border-radius: 10px;">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <style>
-        @media (max-width: 768px) {
-            #products > .container > div > div {
-                grid-template-columns: 1fr !important;
-            }
-            #products > .container > div:last-child > div > div:first-child {
-                order: 1 !important;
-            }
-        }
-        </style>
-        
-        <style>
-        @media (max-width: 768px) {
-            #products > .container > div > div {
-                grid-template-columns: 1fr !important;
-            }
-            #products > .container > div:last-child > div > div:first-child {
-                order: 1 !important;
-            }
-        }
-        </style>
 
         <!-- Contact Section -->
         <section id="contact">
             <div class="container">
                 <h2>Get in Touch</h2>
                 <div class="contact-section">
-                    <form action="https://formsubmit.co/contactcheapai@gmail.com" method="POST">
+                    <form action="https://formsubmit.co/contactcheapai@gmail.com " method="POST">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://eortner.github.io/cheap-ai-web/">
+                        <input type="hidden" name="_next" value="https://eortner.github.io/cheap-ai-web/ ">
                         <input type="hidden" name="_subject" value="New Cheap AI for Workplace Inquiry">
                         
                         <div class="form-group">
@@ -823,6 +902,85 @@
             </div>
         </section>
     </main>
+
+    <!-- How It Works Modals -->
+    <div id="workspaceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal="workspaceModal">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 40px;">How Cheap AI for Workspace Works</h2>
+            
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Select Your Integration</h3>
+                        <p>Choose your preferred AI tool from the dropdown menu. Works with ChatGPT, Claude, Gemini, or any custom AI endpoint.</p>
+                        <img src="img/02.jpg" alt="Workspace Step 1: App dropdown selection">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Configure Options</h3>
+                        <p>Select the data points you need (summary, comments, linked issues) and choose your language—English or your system's default.</p>
+                        <img src="img/03.jpg" alt="Workspace Step 2: Options & language selection">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Generate & Copy</h3>
+                        <p>Click "Generate AI Prompt" to create a perfectly formatted prompt. Copy it with one click and paste directly into your AI tool.</p>
+                        <img src="img/04.jpg" alt="Workspace Step 3: Generated prompt ready to copy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="creatorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" data-modal="creatorModal">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 40px;">How Cheap AI Creator Works</h2>
+            
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Open Creator Tab</h3>
+                        <p>In your Jira project page, navigate to the "Cheap AI Creator" tab to start the AI-powered issue creation workflow.</p>
+                        <img src="img/06.jpg" alt="Creator Step 1: Creator tab in project page">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Chat with Your AI</h3>
+                        <p>Describe what you want to build. When ready, copy our specialized prompt that structures your conversation into actionable task inputs.</p>
+                        <img src="img/07.jpg" alt="Creator Step 2: AI conversation & prompt copying">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Verify & Generate</h3>
+                        <p>Review the AI-generated tasks, make any adjustments, then click "Generate Tasks" to create them directly in your Jira project.</p>
+                        <img src="img/08.jpg" alt="Creator Step 3: Task verification & generation">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -870,6 +1028,48 @@
             rejectBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'rejected');
                 cookieBanner.classList.remove('show');
+            });
+
+            // Modal functionality
+            const modalTriggers = document.querySelectorAll('.modal-trigger');
+            const modals = document.querySelectorAll('.modal');
+            const closeButtons = document.querySelectorAll('.close-modal');
+
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modalId = this.getAttribute('href').substring(1);
+                    const modal = document.getElementById(modalId);
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modalId = this.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            });
+
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    });
+                }
             });
         });
     </script>

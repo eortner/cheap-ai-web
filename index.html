@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cheap AI for Workplace - Jira plugin for intelligent prompt generation">
-    <title>Cheap AI - Smart AI Integration for Your Workflow</title>
+    <meta name="description" content="Cheap AI - Conscious AI consulting, Jira workflow automation, and Simple AI Workflow plugins.">
+    <title>Cheap AI – Conscious AI for Real Teams</title>
+
     <style>
+        /* === You can keep most of your existing CSS and adapt === */
         * {
             margin: 0;
             padding: 0;
@@ -29,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated Tech Background */
         .tech-bg {
             position: fixed;
             top: 0;
@@ -47,7 +48,7 @@
             height: 200%;
             top: -50%;
             left: -50%;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 50%, transparent 30%, rgba(0, 212, 255, 0.05) 70%),
                 radial-gradient(circle at 80% 80%, transparent 40%, rgba(0, 153, 204, 0.05) 80%),
                 linear-gradient(45deg, transparent 48%, rgba(0, 212, 255, 0.03) 50%, transparent 52%),
@@ -69,7 +70,7 @@
             z-index: 1;
         }
 
-        /* Navigation */
+        /* Nav */
         nav {
             padding: 20px 0;
             position: fixed;
@@ -88,10 +89,28 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--primary);
-            text-decoration: none;
+        }
+
+        .logo-placeholder {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px dashed rgba(0, 212, 255, 0.5);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--primary);
         }
 
         .nav-links a {
@@ -100,66 +119,104 @@
             margin-left: 30px;
             transition: color 0.3s;
             font-weight: 500;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
-        /* Hero Section */
+        .nav-links .primary-link {
+            padding: 8px 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 212, 255, 0.5);
+        }
+
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             padding-top: 80px;
+            text-align: center;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
+        .hero-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-logo {
+            margin-bottom: 20px;
+        }
+
+        .hero-logo .logo-placeholder {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            animation: glow 3s ease-in-out infinite;
+            margin-bottom: 16px;
         }
 
-        @keyframes glow {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.2); }
-        }
-
-        .hero-content .slogan {
-            font-size: 1.5rem;
+        .hero .slogan {
+            font-size: 1.4rem;
             color: var(--primary);
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             font-weight: 300;
         }
 
-        .hero-content p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 40px;
+        .hero p {
+            font-size: 1.05rem;
             opacity: 0.9;
+            margin-bottom: 28px;
         }
 
-        .cta-button {
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 12px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--darker);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
+        .btn-primary:hover {
+            transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: rgba(0, 212, 255, 0.6);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
         }
 
         /* Sections */
@@ -167,160 +224,127 @@
             padding: 100px 0;
         }
 
-        section:nth-child(even) {
-            background: rgba(10, 25, 41, 0.6);
-        }
-
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--primary);
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             font-weight: 700;
         }
 
-        /* Problem Section */
-        .problem-grid {
+        /* Mission & principles */
+        .section-intro {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            text-align: center;
+            opacity: 0.9;
+            font-size: 0.98rem;
+        }
+
+        .principles {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
         }
 
-        .problem-card {
-            background: rgba(0, 212, 255, 0.08);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: transform 0.3s;
+        .principle-card {
+            background: rgba(0, 212, 255, 0.06);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: 16px;
+            padding: 24px;
+            font-size: 0.95rem;
         }
 
-        .problem-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .problem-card h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Solution Section */
-        .solution-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .solution-text h3 {
-            font-size: 1.8rem;
+        .principle-card h3 {
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
 
-        .solution-text ul {
+        /* What we do */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .pillar {
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 24px;
+        }
+
+        .pillar h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .pillar a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .pillar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Why Cheap AI */
+        .reasons {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .reasons ul {
             list-style: none;
-            margin: 20px 0;
+            padding: 0;
+            margin: 18px 0 0;
         }
 
-        .solution-text li {
-            padding: 10px 0;
-            padding-left: 30px;
+        .reasons li {
+            padding-left: 20px;
             position: relative;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
-        .solution-text li::before {
+        .reasons li::before {
             content: "▹";
             position: absolute;
             left: 0;
             color: var(--primary);
-            font-size: 1.5rem;
         }
 
-        .solution-visual {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 15px;
-            padding: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .code-mock {
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--primary);
-        }
-
-        .code-mock .comment {
-            color: #888;
-        }
-
-        .code-mock .keyword {
-            color: var(--accent);
-        }
-
-        /* Features */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 40px 30px;
-            background: rgba(0, 212, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
-        }
-
-        .feature-card h3 {
-            color: var(--primary);
-            margin: 20px 0 15px;
-            font-size: 1.4rem;
-        }
-
-        .icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--darker);
-        }
-
-        /* Contact Section */
+        /* Contact section (reuse your existing styles as needed) */
         .contact-section {
             max-width: 700px;
             margin: 0 auto;
             background: rgba(0, 212, 255, 0.08);
-            padding: 50px;
+            padding: 40px;
             border-radius: 20px;
             border: 1px solid rgba(0, 212, 255, 0.3);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--primary);
             font-weight: 600;
+            font-size: 0.95rem;
         }
 
         input, textarea {
@@ -330,38 +354,28 @@
             border-radius: 8px;
             background: rgba(10, 25, 41, 0.7);
             color: var(--light);
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
+            font-size: 0.95rem;
         }
 
         textarea {
-            resize: vertical;
             min-height: 150px;
+            resize: vertical;
         }
 
-        /* GDPR Checkbox Styling */
         .gdpr-consent {
             display: flex;
-            align-items: flex-start;
             gap: 10px;
-            margin-bottom: 25px;
+            align-items: flex-start;
+            margin-bottom: 20px;
         }
 
         .gdpr-consent input[type="checkbox"] {
-            width: auto;
             margin-top: 5px;
-            cursor: pointer;
-            accent-color: var(--primary);
         }
 
         .gdpr-consent label {
+            font-weight: 400;
             font-size: 0.9rem;
-            font-weight: normal;
             color: var(--light);
             margin-bottom: 0;
         }
@@ -373,100 +387,14 @@
 
         button[type="submit"] {
             width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--darker);
-            border: none;
+            padding: 14px;
             border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
-        }
-
-        /* Cookie Consent Banner */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 25, 41, 0.95);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(0, 212, 255, 0.3);
-            padding: 20px;
-            z-index: 9999;
-            display: none;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cookie-banner.show {
-            display: block;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-
-        .cookie-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .cookie-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .cookie-text p {
-            margin: 0;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .cookie-text a {
-            color: var(--primary);
-            text-decoration: underline;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .cookie-btn {
-            padding: 10px 20px;
             border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .cookie-accept {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--darker);
-        }
-
-        .cookie-reject {
-            background: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .cookie-btn:hover {
-            transform: translateY(-2px);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
         }
 
         /* Footer */
@@ -474,6 +402,7 @@
             text-align: center;
             padding: 40px 0;
             border-top: 1px solid rgba(0, 212, 255, 0.2);
+            font-size: 0.9rem;
         }
 
         footer a {
@@ -486,133 +415,20 @@
             text-decoration: underline;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            background: var(--dark);
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 50px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            position: relative;
-            animation: modalSlideIn 0.3s ease-out;
-        }
-
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2.5rem;
-            color: var(--primary);
-            cursor: pointer;
-            transition: color 0.3s;
-            line-height: 1;
-        }
-
-        .close-modal:hover {
-            color: var(--accent);
-        }
-
-        .steps-container {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 30px;
-            align-items: start;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--darker);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            flex-shrink: 0;
-            margin-top: 5px;
-        }
-
-        .step-content h3 {
-            color: var(--accent);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .step-content p {
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .step-content img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 10px;
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive */
+        /* Responsive tweaks */
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            .solution-content {
-                grid-template-columns: 1fr;
-            }
-            h2 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             nav {
                 padding: 15px 0;
             }
             .nav-links a {
-                margin-left: 20px;
-                font-size: 0.9rem;
+                margin-left: 18px;
+                font-size: 0.85rem;
             }
-            .cookie-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .modal-content {
-                margin: 20px;
-                padding: 30px;
-            }
-            .step {
-                grid-template-columns: 60px 1fr;
-                gap: 20px;
-            }
-            .step-number {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
+            .contact-section {
+                padding: 28px;
             }
         }
     </style>
@@ -622,252 +438,155 @@
 
     <nav>
         <div class="container">
-            <a href="#home" class="logo">Cheap AI</a>
+            <a href="/" class="logo">
+                <!-- Cheap AI logo placeholder -->
+                <div class="logo-placeholder">CA</div>
+                <span class="logo-text">Cheap AI</span>
+            </a>
             <div class="nav-links">
-                <a href="#problem">Problem</a>
-                <a href="#solution">Solution</a>
-                <a href="#products">Products</a>
-                <a href="#features">Features</a>
+                <a href="#mission">Mission</a>
+                <a href="#what-we-do">What we do</a>
+                <a href="/workflow-ai" class="primary-link">Simple AI Workflow</a>
                 <a href="#contact">Contact</a>
-                <a href="privacy-policy.html">Privacy</a>
-                <a href="security-policy.html">Security</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Cheap AI</h1>
-                    <p class="slogan">Smart AI Integration for Your Workflow</p>
-                    <p>We help teams seamlessly connect their tools to any AI—intelligently, securely, and affordably. Whether you're generating prompts from Jira issues or creating issues from AI conversations, Cheap AI bridges the gap without compromising your data.</p>
-                    <a href="#products" class="cta-button">Explore Our Products</a>
+        <!-- Hero -->
+        <section class="hero" id="top">
+            <div class="container hero-inner">
+                <div class="hero-logo">
+                    <!-- Cheap AI logo placeholder (hero) -->
+                    <div class="logo-placeholder">CA</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- The Problem Section -->
-        <section id="problem">
-            <div class="container">
-                <h2>The Integration Gap</h2>
-                <p style="text-align: center; font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; opacity: 0.9;">
-                    Teams waste hours manually moving data between AI tools and their workflow platforms. Whether you're copying Jira issues into ChatGPT or trying to get AI-generated content back into your tools, the process is slow, error-prone, and breaks focus.
+                <h1>Conscious AI for real teams</h1>
+                <p class="slogan">We build AI that respects your data, your workflows, and your people.</p>
+                <p>
+                    Cheap AI helps software teams bring AI into Jira and internal tools without losing control.
+                    We focus on practical automation, privacy‑aware design, and systems you can maintain.
                 </p>
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <h3>⏱️ Manual Data Transfer</h3>
-                        <p>15-20 minutes wasted per task copying between tools and formatting for AI consumption.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Talk to us about a project</a>
+                    <a href="/workflow-ai" class="btn-secondary">Explore our Jira plugins</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & principles -->
+        <section id="mission">
+            <div class="container">
+                <h2>Our mission: useful AI with clear boundaries</h2>
+                <p class="section-intro">
+                    Our mission is to make AI a responsible part of everyday work.
+                    That means no dark patterns, no surprise data leaks, and no black‑box decisions you can’t question.
+                </p>
+                <div class="principles">
+                    <div class="principle-card">
+                        <h3>Data stays under your control</h3>
+                        <p>
+                            We design around your constraints: from SaaS providers to VPC setups and on‑prem deployments.
+                            You decide where data lives and which models can see it.
+                        </p>
                     </div>
-                    <div class="problem-card">
-                        <h3>🎯 Context Loss</h3>
-                        <p>Critical linked information gets missed when manually preparing data for AI tools.</p>
+                    <div class="principle-card">
+                        <h3>Model choice, not vendor hype</h3>
+                        <p>
+                            We pick models and architectures based on your risk profile, latency, and cost—
+                            not on the latest marketing announcement.
+                        </p>
                     </div>
-                    <div class="problem-card">
-                        <h3>🔁 Workflow Fragmentation</h3>
-                        <p>Constant context-switching between Jira, AI tools, and back again kills productivity.</p>
+                    <div class="principle-card">
+                        <h3>Humans stay in the loop</h3>
+                        <p>
+                            Every AI feature we ship includes a human‑in‑the‑loop path by default,
+                            so your team can review and override AI suggestions.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Solution Section -->
-        <section id="solution">
+        <!-- What we do -->
+        <section id="what-we-do">
             <div class="container">
-                <h2>Smart, Secure AI Integration</h2>
-                <div class="solution-content">
-                    <div class="solution-text">
-                        <h3>Cheap AI: Your Workflow Bridge</h3>
-                        <p>We build intelligent plugins that live inside your tools, creating secure, direct pathways to any AI platform you choose. No data exfiltration, no complex setup—just seamless integration.</p>
-                        <ul>
-                            <li>Works with any AI: ChatGPT, Claude, Gemini, local models</li>
-                            <li>Privacy-first: Zero external data transmission</li>
-                            <li>Resource-efficient: Minimal memory, maximum speed</li>
-                            <li>Zero config: Install and start immediately</li>
-                        </ul>
-                        <p><strong>Result:</strong> Turn hours of manual work into seconds of automated intelligence.</p>
-                    </div>
-                    <div class="solution-visual">
-                        <div class="code-mock">
-                            <div class="comment">// Traditional Workflow</div>
-                            <div>• Copy from Tool → Paste to AI → Copy from AI → Paste to Tool<br>• <span class="keyword">High error rate, low productivity</span></div>
-                            <br>
-                            <div class="comment">// With Cheap AI Plugins</div>
-                            <div>• Click → <span class="keyword">✨ Instant Transfer</span><br>• AI → Tool or Tool → AI<br>• <span class="keyword">Zero errors, 10x faster</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features">
-            <div class="container">
-                <h2>Why Choose Cheap AI?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="icon">⚡</div>
-                        <h3>Lightning Fast</h3>
-                        <p>Generate comprehensive prompts or issues in under 5 seconds. No more manual data hunting.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">🧠</div>
-                        <h3>Context-Aware</h3>
-                        <p>Automatically includes relevant data from parent epics, child stories, and blocking issues.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">💰</div>
-                        <h3>Affordable</h3>
-                        <p>Priced for teams of all sizes. Pay a fraction of the cost of developer time wasted.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">🔒</div>
-                        <h3>Secure & Private</h3>
-                        <p>Your data stays within your Jira instance. No external servers, no data retention.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">🎯</div>
-                        <h3>AI-Optimized</h3>
-                        <p>Prompts and structures are designed for maximum clarity and better AI responses.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">🔧</div>
-                        <h3>Zero Config</h3>
-                        <p>Install and go. Works out-of-the-box with your existing Jira setup.</p>
-                    </div>
-                </div>
-        
-                <!-- Security Trust Box -->
-                <div style="margin-top: 80px; padding: 40px; background: rgba(0, 255, 136, 0.05); border-radius: 15px; border: 1px solid rgba(0, 255, 136, 0.3);">
-                    <h3 style="text-align: center; color: var(--success); margin-bottom: 30px;">🔒 Your Data, Your Control. Always.</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: center;">
-                        <div>
-                            <div style="font-size: 2rem; margin-bottom: 10px;">🚫</div>
-                            <strong>Zero Data Storage</strong>
-                            <p style="font-size: 0.9rem; opacity: 0.8;">Nothing saved locally or remotely</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; margin-bottom: 10px;">🎛️</div>
-                            <strong>You Control Data Flow</strong>
-                            <p style="font-size: 0.9rem; opacity: 0.8;">Decide exactly where information goes</p>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; margin-bottom: 10px;">🌐</div>
-                            <strong>Any AI, Your Choice</strong>
-                            <p style="font-size: 0.9rem; opacity: 0.8;">Works with any AI platform</p>
-                        </div>
-                    </div>
-                    <p style="text-align: center; margin-top: 30px;">
-                        <a href="security-policy.html" class="cta-button" style="padding: 10px 30px; font-size: 1rem;">View Full Security Policy →</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section id="products">
-            <div class="container">
-                
-                <!-- Security & Control Banner -->
-                <div style="background: rgba(0, 255, 136, 0.1); border: 2px solid rgba(0, 255, 136, 0.4); border-radius: 15px; padding: 40px; margin-bottom: 60px; text-align: center;">
-                    <h3 style="color: var(--success); font-size: 1.8rem; margin-bottom: 15px;">
-                        🔒 Your Data, Your Control. Always.
-                    </h3>
-                    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
-                        Both plugins are <strong>strictly safe by design</strong>. They process everything locally in your browser—<strong>zero data storage, zero external transmission</strong>. You decide where your information goes, whether it's ChatGPT, Claude, or a private AI instance. Complete control, total privacy.
-                    </p>
-                </div>
-
-                <h2>Our Products</h2>
-                <p style="text-align: center; font-size: 1.2rem; max-width: 700px; margin: 0 auto 60px; opacity: 0.9;">
-                    Two powerful plugins designed to make AI integration seamless, secure, and resource-efficient for modern teams.
+                <h2>What we build with you</h2>
+                <p class="section-intro">
+                    We combine consulting, product engineering, and Atlassian expertise to ship AI that actually survives contact with production.
                 </p>
 
-                <!-- Product 1: Cheap AI for Workspace -->
-                <div style="margin-bottom: 100px;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-                        <div>
-                            <h3 style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;">
-                                🤖 Cheap AI for Workspace
-                            </h3>
-                            <p style="font-size: 1.1rem; margin-bottom: 25px;">
-                                Transform any Jira issue into a structured AI prompt in seconds. Extract summaries, linked dependencies, and comments—ready to paste into ChatGPT, Claude, or any AI tool.
-                            </p>
-                            <ul style="list-style: none; margin: 25px 0;">
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    Zero context switching—stay in Jira
-                                </li>
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    Recursively gathers linked issues & epics
-                                </li>
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    Privacy-first: No data leaves your browser
-                                </li>
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    You control the destination: use any AI tool you trust
-                                </li>
-                            </ul>
-                            <a href="#workspaceModal" class="cta-button modal-trigger" style="padding: 12px 30px; font-size: 1rem;">See How It Works →</a>
-                        </div>
-                        <div style="background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 20px;">
-                            <img src="img/01.jpg" alt="Cheap AI for Workspace Interface" style="width: 100%; height: auto; border-radius: 10px;">
-                        </div>
+                <div class="pillars">
+                    <div class="pillar">
+                        <h3>AI consulting for Jira and internal tools</h3>
+                        <p>
+                            We analyse your workflows, identify automation opportunities, and design AI flows
+                            that match how your teams already work.
+                        </p>
+                        <p>
+                            Typical projects: AI‑assisted triage, ticket routing, backlog grooming,
+                            support workflows, and internal tooling.
+                        </p>
                     </div>
-                </div>
 
-                <!-- Product 2: Cheap AI Creator -->
-                <div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-                        <div style="order: 2;">
-                            <h3 style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;">
-                                ✨ Cheap AI Creator
-                            </h3>
-                            <p style="font-size: 1.1rem; margin-bottom: 25px;">
-                                Turn AI conversations directly into structured Jira issues. Describe features to your AI, and watch them become properly formatted stories, bugs, or tasks in your backlog.
-                            </p>
-                            <ul style="list-style: none; margin: 25px 0;">
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    AI-generated issue creation
-                                </li>
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    Smart field mapping & validation
-                                </li>
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    Bulk create from AI brainstorming
-                                </li>
-                                <li style="padding: 10px 0; padding-left: 30px; position: relative;">
-                                    <span style="position: absolute; left: 0; color: var(--accent); font-size: 1.5rem;">▹</span>
-                                    Full control: AI generates issues, you approve before creation
-                                </li>
-                            </ul>
-                            <a href="#creatorModal" class="cta-button modal-trigger" style="padding: 12px 30px; font-size: 1rem;">See How It Works →</a>
-                        </div>
-                        <div style="order: 1; background: rgba(0, 212, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 20px;">
-                            <img src="img/05.jpg" alt="Cheap AI Creator Interface" style="width: 100%; height: auto; border-radius: 10px;">
-                        </div>
+                    <div class="pillar">
+                        <h3>Our own AI projects</h3>
+                        <p>
+                            We experiment with new ideas around developer productivity, workflow intelligence,
+                            and decision support.
+                        </p>
+                        <p>
+                            When something proves valuable in the field, we turn it into a reusable component or product.
+                        </p>
+                    </div>
+
+                    <div class="pillar">
+                        <h3>Jira plugins and integrations</h3>
+                        <p>
+                            We build and maintain Jira apps like Simple AI Workflow, designed for real engineering teams,
+                            not demo videos.
+                        </p>
+                        <p>
+                            Use our plugins as‑is, or as a starting point for custom automation tailored to your stack.
+                        </p>
+                        <a href="/simple-ai-workflow">See Simple AI Workflow →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Why Cheap AI -->
+        <section id="why">
+            <div class="container">
+                <h2>Why teams work with Cheap AI</h2>
+                <div class="reasons">
+                    <p>
+                        We’re engineers first. We’ve built production systems, handled compliance requirements, and
+                        lived with the long‑term cost of “clever” shortcuts. That’s why our AI work optimises for clarity and control.
+                    </p>
+                    <ul>
+                        <li>Deep experience with Atlassian, AWS, and modern AI providers.</li>
+                        <li>We prototype fast, but we design for production from day one.</li>
+                        <li>You talk directly to the people building your system, not a sales layer.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact (reuses your existing form backend) -->
         <section id="contact">
             <div class="container">
-                <h2>Get in Touch</h2>
+                <h2>Start a conversation</h2>
+                <p class="section-intro">
+                    Tell us about your Jira setup, current pain points, or an idea you want to explore.
+                    We’ll reply with concrete options, not a generic sales deck.
+                </p>
                 <div class="contact-section">
-                    <form action="https://formsubmit.co/contactcheapai@gmail.com " method="POST">
+                    <form action="https://formsubmit.co/contactcheapai@gmail.com" method="POST">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://eortner.github.io/cheap-ai-web/ ">
-                        <input type="hidden" name="_subject" value="New Cheap AI for Workplace Inquiry">
-                        
+                        <!-- Update this _next if needed -->
+                        <input type="hidden" name="_next" value="https://eortner.github.io/cheap-ai-web/">
+                        <input type="hidden" name="_subject" value="New Cheap AI Inquiry">
+
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Jane Smith">
@@ -885,193 +604,32 @@
 
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" required placeholder="Tell us about your workspace workflow needs..."></textarea>
+                            <textarea id="message" name="message" required placeholder="Tell us about your workflows, Jira setup, or ideas..."></textarea>
                         </div>
 
-                        <!-- GDPR Consent Checkbox -->
                         <div class="gdpr-consent">
                             <input type="checkbox" id="gdpr" name="_gdpr" required>
                             <label for="gdpr">
-                                I consent to having this website store my submitted information so they can respond to my inquiry, and I understand my data will be processed according to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. *
+                                I consent to having this website store my submitted information so they can respond to my inquiry, and I understand my data will be processed according to the
+                                <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. *
                             </label>
                         </div>
 
-                        <button type="submit">Send Message →</button>
+                        <button type="submit">Send message →</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- How It Works Modals -->
-    <div id="workspaceModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" data-modal="workspaceModal">&times;</span>
-            <h2 style="color: var(--primary); margin-bottom: 40px;">How Cheap AI for Workspace Works</h2>
-            
-            <div class="steps-container">
-                <!-- Step 1 -->
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Select Your Integration</h3>
-                        <p>Choose your preferred AI tool from the dropdown menu. Works with ChatGPT, Claude, Gemini, or any custom AI endpoint.</p>
-                        <img src="img/02.jpg" alt="Workspace Step 1: App dropdown selection">
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Configure Options</h3>
-                        <p>Select the data points you need (summary, comments, linked issues) and choose your language—English or your system's default.</p>
-                        <img src="img/03.jpg" alt="Workspace Step 2: Options & language selection">
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Generate & Copy</h3>
-                        <p>Click "Generate AI Prompt" to create a perfectly formatted prompt. Copy it with one click and paste directly into your AI tool.</p>
-                        <img src="img/04.jpg" alt="Workspace Step 3: Generated prompt ready to copy">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="creatorModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" data-modal="creatorModal">&times;</span>
-            <h2 style="color: var(--primary); margin-bottom: 40px;">How Cheap AI Creator Works</h2>
-            
-            <div class="steps-container">
-                <!-- Step 1 -->
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Open Creator Tab</h3>
-                        <p>In your Jira project page, navigate to the "Cheap AI Creator" tab to start the AI-powered issue creation workflow.</p>
-                        <img src="img/06.jpg" alt="Creator Step 1: Creator tab in project page">
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Chat with Your AI</h3>
-                        <p>Describe what you want to build. When ready, copy our specialized prompt that structures your conversation into actionable task inputs.</p>
-                        <img src="img/07.jpg" alt="Creator Step 2: AI conversation & prompt copying">
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Verify & Generate</h3>
-                        <p>Review the AI-generated tasks, make any adjustments, then click "Generate Tasks" to create them directly in your Jira project.</p>
-                        <img src="img/08.jpg" alt="Creator Step 3: Task verification & generation">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Cheap AI for Workplace. All rights reserved. | 
-               <a href="support-policy.html">Support Policy</a> | 
-               <a href="sla.html">Service Level Agreement</a> | 
-               <a href="privacy-policy.html">Privacy Policy</a> | 
-               <a href="terms-of-service.html">Terms of Service</a> | 
-               <a href="security-policy.html">Security Policy</a> | 
-               <a href="eula.html">End User License Agreement</a>
-            </p>
-        </div>
+        <p>
+            © <span id="year"></span> Cheap AI · <a href="/workflow-ai">Simple AI Workflow</a>
+        </p>
     </footer>
 
-    <!-- Cookie Consent Banner -->
-    <div class="cookie-banner" id="cookieBanner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>We use cookies to analyze site usage and improve your experience. By continuing, you consent to our use of cookies as described in our <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-accept" id="acceptCookies">Accept</button>
-                <button class="cookie-btn cookie-reject" id="rejectCookies">Reject</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cookieBanner = document.getElementById('cookieBanner');
-            const acceptBtn = document.getElementById('acceptCookies');
-            const rejectBtn = document.getElementById('rejectCookies');
-            
-            const cookieChoice = localStorage.getItem('cookieConsent');
-            
-            if (!cookieChoice) {
-                cookieBanner.classList.add('show');
-            }
-            
-            acceptBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
-                cookieBanner.classList.remove('show');
-            });
-            
-            rejectBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'rejected');
-                cookieBanner.classList.remove('show');
-            });
-
-            // Modal functionality
-            const modalTriggers = document.querySelectorAll('.modal-trigger');
-            const modals = document.querySelectorAll('.modal');
-            const closeButtons = document.querySelectorAll('.close-modal');
-
-            modalTriggers.forEach(trigger => {
-                trigger.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const modalId = this.getAttribute('href').substring(1);
-                    const modal = document.getElementById(modalId);
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const modalId = this.getAttribute('data-modal');
-                    const modal = document.getElementById(modalId);
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                });
-            });
-
-            modals.forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    modals.forEach(modal => {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    });
-                }
-            });
-        });
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

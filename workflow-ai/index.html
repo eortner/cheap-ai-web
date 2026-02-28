@@ -639,7 +639,7 @@
                         You decide what gets created and which provider sees your data.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#plugins" class="btn-primary">See the two plugins</a>
+                        <a href="#plugins" class="btn-primary">See the plugins</a>
                         <a href="/#contact" class="btn-secondary">Talk to Cheap AI</a>
                     </div>
                 </div>
@@ -649,7 +649,7 @@
         <!-- Overview -->
         <section>
             <div class="container section-wrap">
-                <h2>One workflow, two Jira plugins</h2>
+                <h2>One workflow, three Jira plugins</h2>
                 <p>
                     Simple AI Workflow has two apps you can use together or separately.
                     Both keep everything inside Jira and always let humans approve changes first.
@@ -696,6 +696,24 @@
                             <a href="#creatorModal" class="btn-secondary modal-trigger" data-modal="creatorModal">How it works</a>
                         </div>
                     </article>
+
+                    <!-- Tests card -->
+                    <article class="plugin-card" id="tests" style="border-color: rgba(212, 160, 23, 0.12); opacity: 0.75;">
+                        <div class="plugin-tag" style="color: var(--muted);">Plugin 03</div>
+                        <h3 style="color: var(--muted);">Simple AI Workflow Tests</h3>
+                        <p>
+                            Turn any Jira issue into a regression test suite — without leaving your board.
+                        </p>
+                        <ul>
+                            <li>Generate a test prompt straight from your issue.</li>
+                            <li>AI returns structured tests; plugin creates the sub-issues.</li>
+                            <li>Track test status on a built-in board.</li>
+                        </ul>
+                        <div class="plugin-links">
+                            <span class="btn-secondary" style="opacity: 0.5; cursor: default; pointer-events: none;">Coming Soon</span>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -766,6 +784,41 @@
                         <div class="mini-content">
                             <h4>Parse and create the issues in Jira</h4>
                             <p>The plugin reads the AI output, lets you review the structure, then creates all issues directly in your board.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tests detail -->
+        <section id="tests-detail">
+            <div class="container section-wrap">
+                <h2>Tests: regression coverage from your issues</h2>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 24px;">
+                    Stop writing test tickets by hand. Point the plugin at any issue and get a structured regression suite ready to track — all inside Jira.
+                </p>
+                <div class="mini-flow">
+                    <div class="mini-step">
+                        <div class="mini-number">1</div>
+                        <div class="mini-content">
+                            <h4>Open the issue and generate a test prompt</h4>
+                            <p>The plugin reads your issue context and builds a ready-to-use prompt for your AI provider.</p>
+                        </div>
+                    </div>
+                    <div class="mini-arrow">↓</div>
+                    <div class="mini-step">
+                        <div class="mini-number">2</div>
+                        <div class="mini-content">
+                            <h4>Paste to your AI — get back structured JSON</h4>
+                            <p>Your AI returns a set of regression tests in a structured JSON format the plugin understands.</p>
+                        </div>
+                    </div>
+                    <div class="mini-arrow">↓</div>
+                    <div class="mini-step">
+                        <div class="mini-number">3</div>
+                        <div class="mini-content">
+                            <h4>Parse, create sub-issues and track</h4>
+                            <p>The plugin creates each test as a sub-issue linked to the original, then lets you track pass/fail status directly on a built-in board.</p>
                         </div>
                     </div>
                 </div>

@@ -544,6 +544,59 @@
                 font-size: 2rem;
             }
         }
+        /* Mini flow */
+        .mini-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 620px;
+        }
+
+        .mini-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 160, 23, 0.25);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .mini-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #111;
+            font-weight: 800;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .mini-content h4 {
+            font-size: 0.96rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 3px;
+        }
+
+        .mini-content p {
+            font-size: 0.88rem;
+            color: var(--muted);
+        }
+
+        .mini-arrow {
+            text-align: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 4px 0;
+            margin-left: 14px;
+        }
+
     </style>
 </head>
 <body>
@@ -551,14 +604,13 @@
 
     <nav>
         <div class="container">
-            <a href="/" class="logo">
-                <!-- Cheap AI logo placeholder in nav -->
-                <div class="logo-placeholder">CA</div>
-                <span class="logo-text">Cheap AI</span>
+            <a href="#hero" class="logo">
+                <img src="../img/logo-emobot.png" alt="Cheap AI logo" style="height:32px;width:auto;filter:sepia(1) saturate(3) hue-rotate(10deg) brightness(1.1);">
+                <div class="logo-text">Cheap AI</div>
             </a>
             <div class="nav-links">
                 <a href="/">Main site</a>
-                <a href="/#what-we-do">What we do</a>
+                <a href="#plugins">What we do</a>
                 <a href="/#contact" class="primary-link">Contact</a>
             </div>
         </div>
@@ -642,49 +694,78 @@
             </div>
         </section>
 
-        <!-- Short details -->
+        <!-- Prompts detail -->
         <section id="prompts-detail">
             <div class="container section-wrap">
                 <h2>Prompts: consistent AI, less copy‑paste</h2>
-                <div class="plugin-detail">
-                    <div>
-                        <p>
-                            Instead of scattered prompts in chats, your team uses a shared catalog inside Jira.
-                            You control which prompts exist and how they are updated.
-                        </p>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 24px;">
+                    Instead of scattered prompts in chats, your team uses a shared catalog inside Jira.
+                    You control which prompts exist and how they are updated.
+                </p>
+                <div class="mini-flow">
+                    <div class="mini-step">
+                        <div class="mini-number">1</div>
+                        <div class="mini-content">
+                            <h4>Open Simple Workflow AI panel</h4>
+                            <p>Launch the plugin directly inside your Jira issue — no context switching.</p>
+                        </div>
                     </div>
-                    <div class="detail-box">
-                        <span class="comment">// Example: refine a bug ticket</span><br>
-                        <span class="keyword">Prompt</span>: "Rewrite this issue so it is ready for development."<br><br>
-                        <span class="comment">// In Jira:</span><br>
-                        1. Pick <span class="keyword">"Bug: ready for dev"</span>.<br>
-                        2. The plugin sends the issue context to your AI provider.<br>
-                        3. Summary, description and ACs come back cleaned up.<br>
+                    <div class="mini-arrow">↓</div>
+                    <div class="mini-step">
+                        <div class="mini-number">2</div>
+                        <div class="mini-content">
+                            <h4>Choose language and tone</h4>
+                            <p>Select the language and tone that fits your team or the specific ticket.</p>
+                        </div>
+                    </div>
+                    <div class="mini-arrow">↓</div>
+                    <div class="mini-step">
+                        <div class="mini-number">3</div>
+                        <div class="mini-content">
+                            <h4>Generate prompt for your AI provider</h4>
+                            <p>Get a ready-to-use prompt built from your issue context — copy it straight to ChatGPT, Claude, or any other tool.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Tasks detail -->
         <section id="tasks-detail">
             <div class="container section-wrap">
                 <h2>Tasks: fast work breakdown</h2>
-                <div class="plugin-detail">
-                    <div>
-                        <p>
-                            For bigger changes, describing the work is easy but turning it into tickets is slow.
-                            Tasks proposes a structure you can accept, tweak, or discard.
-                        </p>
+                <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 24px;">
+                    For bigger changes, describing the work is easy but turning it into tickets is slow.
+                    Tasks bridges your AI conversation and your Jira board.
+                </p>
+                <div class="mini-flow">
+                    <div class="mini-step">
+                        <div class="mini-number">1</div>
+                        <div class="mini-content">
+                            <h4>Describe the feature in plain language with your AI</h4>
+                            <p>Have a natural conversation with your preferred AI provider about what needs to be built.</p>
+                        </div>
                     </div>
-                    <div class="detail-box">
-                        <span class="comment">// Example: usage‑based billing</span><br>
-                        <span class="keyword">Input</span>: "Implement usage‑based billing with Stripe."<br><br>
-                        <span class="comment">// The plugin proposes:</span><br>
-                        - Epic: "Usage‑based billing integration"<br>
-                        - Stories and tasks under it, ready for your review.<br>
+                    <div class="mini-arrow">↓</div>
+                    <div class="mini-step">
+                        <div class="mini-number">2</div>
+                        <div class="mini-content">
+                            <h4>Copy our prompt to your AI to generate the tasks</h4>
+                            <p>Use the plugin's structured prompt to instruct your AI to output a proper epic, story and task tree.</p>
+                        </div>
+                    </div>
+                    <div class="mini-arrow">↓</div>
+                    <div class="mini-step">
+                        <div class="mini-number">3</div>
+                        <div class="mini-content">
+                            <h4>Parse and create the issues in Jira</h4>
+                            <p>The plugin reads the AI output, lets you review the structure, then creates all issues directly in your board.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- How it works modals (from original page) -->
         <div id="workspaceModal" class="modal">
@@ -785,7 +866,16 @@
         <p>
             © <span id="year"></span> Cheap AI · <a href="/">Main site</a>
         </p>
+        <div style="margin-top: 6px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/security-policy.html">Security policy</a>
+            <a href="/eula.html">EUA</a>
+            <a href="/sla.html">SLA</a>
+            <a href="/support-policy.html">Support policy</a>
+            <a href="/terms-of-service.html">Terms of service</a>
+        </div>
     </footer>
+    
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quantum AI IDE – A next-generation quantum coding environment built on AWS Braket, developed in collaboration with leading universities.">
+    <title>Quantum AI IDE – Cheap AI</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #6d28d9;
+            --accent: #c4b5fd;
+            --accent-soft: #a78bfa;
+            --dark: #0d0b14;
+            --darker: #07060f;
+            --light: #f2f2f2;
+            --muted: #9ca3af;
+            --border-soft: #1e1535;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        .tech-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: radial-gradient(circle at top, #1a0f33 0%, #0a0718 55%, #000000 100%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Nav */
+        nav {
+            padding: 18px 0;
+            position: fixed;
+            inset-inline: 0;
+            top: 0;
+            background: rgba(7, 6, 15, 0.96);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.25);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            border: 1px dashed rgba(139, 92, 246, 0.7);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent-soft);
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 24px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-soft); }
+
+        .nav-links .primary-link {
+            padding: 6px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: var(--accent-soft);
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to bottom, rgba(7, 6, 15, 0.6), rgba(7, 6, 15, 0.92)),
+                url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            transform: scale(1.05);
+            animation: heroDrift 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroDrift {
+            0%   { transform: scale(1.05) translateY(0); }
+            100% { transform: scale(1.09) translateY(-6px); }
+        }
+
+        .hero-inner {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 140px 0 100px;
+            width: 100%;
+        }
+
+        /* Opening animation */
+        .hero-inner > * {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: heroFadeUp 0.7s ease forwards;
+        }
+
+        .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+        .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+        .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+        .hero-inner > *:nth-child(5) { animation-delay: 0.7s; }
+
+        @keyframes heroFadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .product-label span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent-soft);
+        }
+
+        .coming-soon-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            color: var(--accent-soft);
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .hero-title span {
+            color: var(--accent-soft);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 560px;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #f9fafb;
+            border: 1px solid transparent;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            background: transparent;
+            color: var(--accent-soft);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            transition: background 0.25s;
+        }
+
+        .btn-secondary:hover { background: rgba(139, 92, 246, 0.1); }
+
+        /* Sections */
+        section { padding: 70px 0; position: relative; }
+
+        section:nth-of-type(even) {
+            background: rgba(20, 15, 38, 0.94);
+        }
+
+        .section-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-soft);
+            margin-bottom: 14px;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        /* Feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .feature-card {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon svg { width: 17px; height: 17px; }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--light);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* Collaboration band */
+        .collab-band {
+            background: rgba(139, 92, 246, 0.06);
+            border-top: 1px solid rgba(139, 92, 246, 0.18);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.18);
+            padding: 44px 0;
+            text-align: center;
+        }
+
+        .collab-band p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 10px auto 0;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-inner {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-inner p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 28px 20px;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        footer a {
+            color: var(--accent-soft);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.1rem; }
+            .hero-inner { padding: 120px 0 80px; }
+            nav { padding: 14px 0; }
+            .nav-links a { margin-left: 14px; font-size: 0.82rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-bg"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#hero" class="logo">
+                <img src="../img/logo-emobot.png" alt="Cheap AI logo" style="height:32px;width:auto;filter:sepia(1) saturate(3) hue-rotate(220deg) brightness(1.1);">
+                <div class="logo-text">Cheap AI</div>
+            </a>
+            <div class="nav-links">
+                <a href="/">Main site</a>
+                <a href="/#contact" class="primary-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-inner">
+                    <div class="product-label">
+                        <span>Quantum AI IDE</span>
+                        <span class="coming-soon-badge">Coming soon</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Code quantum.<br>
+                        <span>Think beyond classical.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        A next-generation IDE built on top of AWS Braket, purpose-built for quantum programming.
+                        Write, simulate, and deploy quantum circuits in an environment designed from the ground up
+                        for the way quantum development actually works.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/#contact" class="btn-primary">Get notified at launch</a>
+                        <a href="/" class="btn-secondary">Back to Cheap AI</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What it is -->
+        <section>
+            <div class="container section-wrap">
+                <div class="section-label">The project</div>
+                <h2>A new kind of development environment</h2>
+                <p style="color: var(--muted); font-size: 0.95rem; max-width: 680px; line-height: 1.7;">
+                    Quantum AI IDE is an AWS-based environment tailored specifically for quantum coding.
+                    Rather than adapting classical IDEs to quantum workflows, we built around the unique
+                    demands of quantum programming — from circuit design to hybrid classical‑quantum execution —
+                    with AI assistance woven in at every step.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="3" stroke="#f9fafb" stroke-width="1.8"/>
+                                <path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="#f9fafb" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" stroke="#f9fafb" stroke-width="1.6" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Built on AWS Braket</h3>
+                            <p>Native integration with AWS Braket for circuit simulation and execution on real quantum hardware.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M8 21H5a2 2 0 0 0-2-2v-3M21 16v3a2 2 0 0 0-2 2h-3" stroke="#f9fafb" stroke-width="1.8" stroke-linecap="round"/>
+                                <path d="M9 12h6M12 9v6" stroke="#f9fafb" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>AI-assisted quantum coding</h3>
+                            <p>Intelligent suggestions and code generation tailored to quantum programming patterns and gate operations.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M4 17l6-6 4 4 6-8" stroke="#f9fafb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Quantum-first design</h3>
+                            <p>Every feature is designed around how quantum workflows actually operate, not retrofitted from classical tooling.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collaboration -->
+        <div class="collab-band">
+            <div class="container">
+                <div class="section-label">Research & collaboration</div>
+                <h2 style="color: var(--accent-soft); font-size: 1.5rem; margin-bottom: 0;">Built with the academic community</h2>
+                <p>
+                    Quantum AI IDE is being developed in collaboration with leading universities and research institutions.
+                    The project brings together academic expertise in quantum computing, algorithm design, and AI
+                    to build a tool that meets the real demands of researchers and developers alike.
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <section>
+            <div class="container">
+                <div class="cta-inner">
+                    <div class="section-label">Stay in the loop</div>
+                    <h2>Launching soon</h2>
+                    <p>
+                        We're not ready to say more just yet — but if quantum computing and AI are part of
+                        your work or research, we'd love to hear from you early.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="/#contact" class="btn-primary">Get in touch with Cheap AI</a>
+                        <a href="/" class="btn-secondary">Back to main site</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> Cheap AI · <a href="/">Main site</a> · <a href="/workflow-ai">Simple AI Workflow</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

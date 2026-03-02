@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Policy - Cheap AI for Workplace</title>
+    <title>Security Policy - Simple Workflow AI</title>
     <style>
         :root {
             --primary: #00d4ff;
@@ -14,6 +14,7 @@
             --success: #00ff88;
         }
 
+
         body {
             font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.8;
@@ -21,6 +22,7 @@
             color: var(--light);
             padding: 40px 20px;
         }
+
 
         .container {
             max-width: 900px;
@@ -31,11 +33,13 @@
             border: 1px solid rgba(0, 212, 255, 0.3);
         }
 
+
         h1 {
             color: var(--primary);
             margin-bottom: 30px;
             font-size: 2.5rem;
         }
+
 
         h2 {
             color: var(--primary);
@@ -44,18 +48,22 @@
             font-size: 1.5rem;
         }
 
+
         h3 {
             color: var(--accent);
             margin: 25px 0 15px;
         }
 
+
         p, li {
             margin-bottom: 15px;
         }
 
+
         ul {
             margin-left: 30px;
         }
+
 
         .warning {
             background: rgba(255, 149, 0, 0.1);
@@ -65,9 +73,11 @@
             margin: 30px 0;
         }
 
+
         .warning strong {
             color: var(--warning);
         }
+
 
         .security-box {
             background: rgba(0, 255, 136, 0.1);
@@ -77,10 +87,12 @@
             margin: 25px 0;
         }
 
+
         .security-box h3 {
             margin-top: 0;
             color: var(--success);
         }
+
 
         .threat-box {
             background: rgba(255, 68, 68, 0.1);
@@ -90,10 +102,12 @@
             margin: 25px 0;
         }
 
+
         .threat-box h3 {
             color: #ff4444;
             margin-top: 0;
         }
+
 
         a {
             color: var(--primary);
@@ -101,9 +115,11 @@
             font-weight: 600;
         }
 
+
         a:hover {
             text-decoration: underline;
         }
+
 
         .back-link {
             display: inline-block;
@@ -116,10 +132,12 @@
             transition: transform 0.3s;
         }
 
+
         .back-link:hover {
             transform: translateY(-2px);
             text-decoration: none;
         }
+
 
         table {
             width: 100%;
@@ -128,6 +146,7 @@
             background: rgba(0, 212, 255, 0.05);
         }
 
+
         th, td {
             padding: 12px;
             border: 1px solid rgba(0, 212, 255, 0.2);
@@ -135,12 +154,14 @@
             vertical-align: top;
         }
 
+
         th {
             background: rgba(0, 212, 255, 0.1);
             color: var(--primary);
             font-weight: 600;
         }
-        
+
+
         /* Cookie Consent Banner */
         .cookie-banner {
             position: fixed;
@@ -155,37 +176,102 @@
             display: none;
             box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
         }
-        .cookie-banner.show { display: block; animation: slideUp 0.3s ease-out; }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .cookie-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .cookie-text { flex: 1; min-width: 300px; }
-        .cookie-text p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
-        .cookie-text a { color: var(--primary); text-decoration: underline; }
-        .cookie-buttons { display: flex; gap: 10px; }
-        .cookie-btn { padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
-        .cookie-accept { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--darker); }
-        .cookie-reject { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
-        .cookie-btn:hover { transform: translateY(-2px); }
+
+
+        .cookie-banner.show {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+
+        .cookie-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+
+        .cookie-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+
+        .cookie-accept {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--darker);
+        }
+
+
+        .cookie-reject {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+
+        .cookie-btn:hover {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Security Policy</h1>
-        <p><strong>Last Updated:</strong> January 1, 2025</p>
+        <p><strong>Last Updated:</strong> March 1, 2026</p>
         <p><strong>Version:</strong> 1.0</p>
 
         <h2>1. Security Architecture</h2>
-        <p>Cheap AI for Workplace is designed with a privacy-first, zero-trust architecture that ensures your data never leaves your Jira instance.</p>
+        <p>Simple Workflow AI Prompts and Simple Workflow AI Creator are designed with a privacy-first, zero-trust architecture that ensures your data never leaves your Jira instance.</p>
 
         <div class="security-box">
             <h3>🔒 Core Security Design Principles</h3>
             <ul>
                 <li><strong>Zero Data Exfiltration:</strong> No Jira issue data is ever transmitted to external servers</li>
                 <li><strong>Zero Data Retention:</strong> We cannot access, store, or log your Jira data</li>
-                <li><strong>Local Processing Only:</strong> All prompt generation occurs client-side in your browser's memory</li>
-                <li><strong>Network Isolation:</strong> The plugin makes zero external network calls</li>
-                <li><strong>Credential-Free:</strong> No API keys, tokens, or credentials are stored by the plugin</li>
-                <li><strong>Memory-Only Processing:</strong> Data exists only in RAM during active session, then permanently discarded</li>
+                <li><strong>Local Processing Only:</strong> All prompt and task generation occurs within Atlassian Forge infrastructure — processed entirely inside Atlassian's secure datacenters</li>
+                <li><strong>Network Isolation:</strong> No data egress outside of Atlassian's Forge environment — the plugins make zero external network calls</li>
+                <li><strong>Credential-Free:</strong> No API keys, tokens, or credentials are stored by the plugins</li>
+                <li><strong>Memory-Only Processing:</strong> Data exists only within the Atlassian Forge runtime during processing, then permanently discarded</li>
             </ul>
         </div>
 
@@ -207,7 +293,7 @@
 
         <h3>2.3 Processing Security</h3>
         <ul>
-            <li>Prompt generation occurs entirely in-memory using JavaScript (no server-side processing)</li>
+            <li>Prompt and task generation occurs entirely in-memory using JavaScript (no server-side processing)</li>
             <li>Clipboard operations use browser's secure Clipboard API</li>
             <li>No temporary files or caches written to disk</li>
         </ul>
@@ -279,9 +365,10 @@
 
         <h3>4.2 Standards Alignment</h3>
         <ul>
-            <li><strong>OWASP Top 10:</strong> Designed to prevent all category vulnerabilities</li>
-            <li><strong>GDPR Article 32:</strong> Appropriate technical measures for data protection</li>
-            <li><strong>SOC 2 Type II:</strong> Architecture aligns with Trust Service Criteria (though not formally audited)</li>
+            <li><strong>OWASP Top 10:</strong> Designed to prevent all category vulnerabilities per Atlassian Marketplace security requirements</li>
+            <li><strong>GDPR Article 32:</strong> Appropriate technical measures for data protection, supported by Atlassian Forge's Data Processing Addendum and EU Standard Contractual Clauses</li>
+            <li><strong>SOC 2 Type II:</strong> Built on Atlassian Forge, which is SOC 2 attested. Apps with no data egress inherit Forge's SOC 2 controls (partial inheritance — not independently audited)</li>
+            <li><strong>ISO 27001:</strong> Atlassian Forge is ISO 27001 certified. Apps with no data egress inherit applicable controls within the Forge platform boundary</li>
         </ul>
 
         <h2>5. Infrastructure Security</h2>
@@ -348,7 +435,7 @@
         <p>We will notify you if we become aware of any security incident affecting:</p>
         <ul>
             <li>Your data (though we have no access to your Jira data)</li>
-            <li>The plugin's integrity or distribution mechanism</li>
+            <li>The plugins' integrity or distribution mechanism</li>
             <li>Any vulnerability that could affect your Jira instance</li>
         </ul>
 
@@ -357,8 +444,8 @@
         <ul>
             <li><strong>Access Control:</strong> Managing user permissions to install and use plugins in your Jira instance</li>
             <li><strong>Network Security:</strong> Ensuring your Jira instance is accessible only via secure networks</li>
-            <li><strong>Updates:</strong> Keeping Jira and the plugin updated to latest versions</li>
-            <li><strong>AI Tool Security:</strong> Securing credentials for third-party AI tools you use</li>
+            <li><strong>Updates:</strong> Keeping Jira and the plugins updated to latest versions</li>
+            <li><strong>AI Tool Security:</strong> Securing credentials for third-party AI tools you use with Simple Workflow AI Prompts and Simple Workflow AI Creator</li>
             <li><strong>Data Classification:</strong> Not processing highly sensitive data without proper authorization</li>
         </ul>
 
@@ -366,7 +453,7 @@
         <div class="security-box">
             <h3>✅ Recommended Configuration</h3>
             <ul>
-                <li>Install plugin only from official Atlassian Marketplace</li>
+                <li>Install plugins only from the official Atlassian Marketplace</li>
                 <li>Review plugin permissions during installation (only requests read-only access to issues)</li>
                 <li>Regularly audit plugin usage in your instance</li>
                 <li>Monitor clipboard usage for sensitive data handling</li>
@@ -419,18 +506,18 @@
             const cookieBanner = document.getElementById('cookieBanner');
             const acceptBtn = document.getElementById('acceptCookies');
             const rejectBtn = document.getElementById('rejectCookies');
-            
+
             const cookieChoice = localStorage.getItem('cookieConsent');
-            
+
             if (!cookieChoice) {
                 cookieBanner.classList.add('show');
             }
-            
+
             acceptBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'accepted');
                 cookieBanner.classList.remove('show');
             });
-            
+
             rejectBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'rejected');
                 cookieBanner.classList.remove('show');

@@ -1,0 +1,38 @@
+OWASP Top 10
+
+text
+This app is developed following OWASP Top 10 guidelines to protect against 
+the most critical web application security risks, including injection, 
+cross-site scripting (XSS), and broken authentication.
+
+GDPR
+
+text
+This app supports your GDPR compliance obligations. All data is processed 
+exclusively within Atlassian Forge infrastructure, with no external data 
+egress. Atlassian Forge operates under EU Standard Contractual Clauses and 
+a Data Processing Addendum, ensuring appropriate technical and organisational 
+measures as required by GDPR Article 32.
+
+SOC 2
+
+text
+This app is built on Atlassian Forge, which is SOC 2 Type II attested. 
+As the app processes all data exclusively within the Forge runtime with 
+no external network calls, it operates within Atlassian's attested 
+security boundary. The app itself has not been independently audited.
+
+ISO 27001
+
+text
+This app runs entirely on Atlassian Forge infrastructure, which holds 
+ISO 27001 certification. All data processing remains within Atlassian's 
+certified environment. The app itself is not independently ISO 27001 certified.
+
+Tip: You could group these under a single "Security & Compliance" section in your listing with a header like:
+
+text
+🔒 Security & Compliance
+Built on Atlassian Forge's certified infrastructure — SOC 2 attested, ISO 27001 
+certified, and GDPR Article 32 compliant. Developed against OWASP Top 10 
+security standards, with zero external data egress.

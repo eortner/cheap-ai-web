@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emoclew by Cheap AI - A founder-first accelerator designed to give solo founders and small companies stronger infrastructure, discovery, collaboration, and company-building support.">
+    <meta property="og:title" content="Emoclew by Cheap AI – Founder-first accelerator">
+    <meta property="og:description" content="A founder-first accelerator built around structured progression, operational support, and the true democratization of technology.">
+    <meta property="og:url" content="https://cheap-ai.net/emoclew/">
+    <meta property="og:image" content="https://cheap-ai.net/img/logo-emobot.png">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://cheap-ai.net/emoclew/">
+    <link rel="icon" type="image/png" href="../img/logo-emobot.png">
+    <title>Emoclew – Founder-first accelerator | Cheap AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0e0d0b;
+            --surface: #141310;
+            --surface-2: #1a1916;
+            --border: rgba(255,255,255,0.07);
+            --text: #e8e4dc;
+            --text-muted: #8a8680;
+            --text-faint: #4a4844;
+            --ember: #e85d04;
+            --gold: #f4a261;
+            --spark: #ffd166;
+            --cyan: #48cae4;
+            --nova: #90e0ef;
+            --grad-fire: linear-gradient(135deg, #e85d04 0%, #f4a261 40%, #ffd166 70%, #48cae4 100%);
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        .fire-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 20% 18%, rgba(232,93,4,0.16), transparent 28%),
+                radial-gradient(circle at 80% 12%, rgba(244,162,97,0.12), transparent 28%),
+                radial-gradient(circle at 74% 74%, rgba(72,202,228,0.08), transparent 24%),
+                linear-gradient(180deg, #100f0c 0%, #0e0d0b 52%, #0b0a08 100%);
+        }
+
+        .hero-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            opacity: 0.12;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(244,162,97,0.26) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(244,162,97,0.26) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: radial-gradient(ellipse 74% 58% at 50% 15%, black 22%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse 74% 58% at 50% 15%, black 22%, transparent 80%);
+            transform: perspective(650px) rotateX(20deg);
+            transform-origin: center top;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(14, 13, 11, 0.9);
+            border-bottom: 1px solid rgba(244,162,97,0.18);
+            backdrop-filter: blur(12px);
+        }
+
+        header .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            background: var(--grad-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--text);
+            border-color: rgba(244,162,97,0.22);
+        }
+
+        nav .primary-link {
+            color: var(--gold);
+            border-color: rgba(232,93,4,0.4);
+        }
+
+        nav .primary-link:hover {
+            background: rgba(232,93,4,0.1);
+            border-color: rgba(232,93,4,0.7);
+        }
+
+        main { padding-top: 72px; }
+
+        section {
+            position: relative;
+            padding: 90px 0 70px;
+        }
+
+        .section-label {
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--ember);
+            margin-bottom: 10px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            letter-spacing: 0.01em;
+            line-height: 1.02;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6.1rem);
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+
+        .section-heading {
+            margin-bottom: 26px;
+            max-width: 780px;
+        }
+
+        .section-heading p,
+        .section-wrap > p,
+        .feature-card p,
+        .path-card p,
+        .capability-card p,
+        .quote-block p,
+        .cta p {
+            color: var(--text-muted);
+            font-size: 0.97rem;
+        }
+
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 70px 0 90px;
+            overflow: hidden;
+        }
+
+        #hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -60px;
+            height: 120px;
+            background: rgba(20,19,16,0.95);
+            transform: skewY(3deg);
+            transform-origin: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 90px 0 70px;
+        }
+
+        .hero-tagline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(232,93,4,0.25);
+            background: rgba(232,93,4,0.08);
+            color: var(--gold);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            background: var(--grad-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: 780px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.12rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            max-width: 720px;
+        }
+
+        .hero-main-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 690px;
+            margin-bottom: 22px;
+        }
+
+        .hero-main-text strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            border: 1px solid transparent;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--grad-fire);
+            color: #0e0d0b;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 28px rgba(232,93,4,0.28);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border-color: rgba(244,162,97,0.35);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(244,162,97,0.08);
+            color: var(--spark);
+        }
+
+        .hero-note {
+            max-width: 690px;
+            font-size: 0.88rem;
+            color: var(--text-faint);
+        }
+
+        .angled-section {
+            background: rgba(20,19,16,0.95);
+            overflow: hidden;
+        }
+
+        .angled-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -110px;
+            height: 140px;
+            background: rgba(20,19,16,0.95);
+            transform: skewY(3deg);
+            transform-origin: 0;
+        }
+
+        .angled-section.alt {
+            background: rgba(26,25,22,0.96);
+        }
+
+        .angled-section.alt::before {
+            background: rgba(26,25,22,0.96);
+        }
+
+        .feature-grid,
+        .capability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .feature-card,
+        .capability-card,
+        .path-card {
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 18px 18px 16px;
+            transition: border-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .feature-card:hover,
+        .capability-card:hover,
+        .path-card:hover {
+            border-color: rgba(232,93,4,0.26);
+            transform: translateY(-2px);
+        }
+
+        .feature-card h3,
+        .capability-card h3,
+        .path-card h3 {
+            font-size: 1.18rem;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .feature-tag,
+        .capability-tag,
+        .path-tag {
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .path-card:nth-child(1) { border-color: rgba(232,93,4,0.35); }
+        .path-card:nth-child(2) { border-color: rgba(244,162,97,0.24); }
+        .path-card:nth-child(3) { border-color: rgba(255,209,102,0.2); }
+        .path-card:nth-child(4) { border-color: rgba(72,202,228,0.18); }
+        .path-card:nth-child(5) { border-color: rgba(144,224,239,0.15); }
+
+        .path-number {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid currentColor;
+        }
+
+        .path-card:nth-child(1) .path-number,
+        .path-card:nth-child(1) .path-tag { color: var(--ember); }
+        .path-card:nth-child(2) .path-number,
+        .path-card:nth-child(2) .path-tag { color: var(--gold); }
+        .path-card:nth-child(3) .path-number,
+        .path-card:nth-child(3) .path-tag { color: var(--spark); }
+        .path-card:nth-child(4) .path-number,
+        .path-card:nth-child(4) .path-tag { color: var(--cyan); }
+        .path-card:nth-child(5) .path-number,
+        .path-card:nth-child(5) .path-tag { color: var(--nova); }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        .quote-block {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--ember);
+            border-radius: 14px;
+            padding: 22px 22px 18px;
+        }
+
+        .quote-block p {
+            font-size: 0.98rem;
+            margin-bottom: 14px;
+        }
+
+        .quote-block strong {
+            background: var(--grad-fire);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .quote-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+        }
+
+        .quote-link:hover { color: var(--spark); }
+
+        .cta { text-align: left; }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 34px;
+            border-top: 1px solid rgba(244,162,97,0.14);
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            background: #0b0a08;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        .footer-links {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .hero-content > * {
+            opacity: 0;
+            transform: translateY(18px);
+            animation: heroFadeUp 0.7s ease forwards;
+        }
+
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.22s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.34s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.46s; }
+        .hero-content > *:nth-child(5) { animation-delay: 0.58s; }
+        .hero-content > *:nth-child(6) { animation-delay: 0.7s; }
+
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .split-section { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            header .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            #hero {
+                padding-top: 40px;
+                min-height: auto;
+            }
+
+            .hero-content { padding: 70px 0 50px; }
+            .path-grid,
+            .feature-grid,
+            .capability-grid { grid-template-columns: 1fr; }
+            .cta { text-align: center; }
+            .cta-buttons { justify-content: center; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .hero-content > * {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+            .feature-card,
+            .capability-card,
+            .path-card,
+            .btn-primary,
+            .btn-secondary { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="fire-bg"></div>
+    <div class="hero-grid"></div>
+
+    <header>
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <img src="../img/logo-emobot.png" alt="Cheap AI logo" style="height:32px;width:auto;filter:sepia(1) saturate(2.5) hue-rotate(352deg) brightness(1.02);">
+                <div class="logo-text">Cheap AI</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#capabilities">Capabilities</a></li>
+                    <li><a href="#path">The path</a></li>
+                    <li><a href="/#contact" class="primary-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-tagline">Cheap AI project · Founder-first accelerator</div>
+                    <h1 class="hero-title">Emoclew is structured infrastructure for founders building toward real company formation.</h1>
+                    <p class="hero-subtitle">A platform for discovery, collaboration, tooling access, and operational progression.</p>
+                    <p class="hero-main-text">
+                        Emoclew is being built for solo founders and small companies with real capability but limited institutional support. Its purpose is to improve the conditions for execution: helping builders stay focused on the work itself while gaining access to stronger visibility, coordination, support systems, and company-building infrastructure. Its long-term aim is the <strong>true democratization of technology</strong>.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://emoclew.xyz" target="_blank" rel="noopener noreferrer" class="btn-primary">Visit Emoclew</a>
+                        <a href="#about" class="btn-secondary">Explore the platform</a>
+                    </div>
+                    <p class="hero-note">
+                        Presented by Cheap AI as part of our broader work on practical AI systems, operational leverage, and accessible technical infrastructure.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="angled-section">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Positioning</div>
+                    <h2>A founder-first accelerator designed for capable builders who need structure, not noise.</h2>
+                    <p>
+                        Emoclew is designed for founders who can build real products and real companies, but who often lack the legal, operational, financial, and network scaffolding that makes progress sustainable. The platform is intended to narrow that gap through a structured operating model rather than generic startup inspiration.
+                    </p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-tag">Execution</div>
+                        <h3>Keep attention on the work</h3>
+                        <p>Emoclew is meant to reduce drag around discovery, support, and coordination so founders can spend more of their time on product, traction, and real company-building decisions.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-tag">Progression</div>
+                        <h3>Structured advancement</h3>
+                        <p>The platform is built around staged progression, with each level intended to unlock stronger operating conditions, deeper support, and more meaningful infrastructure.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-tag">Democratization</div>
+                        <h3>Access should compound outward</h3>
+                        <p>Emoclew is built around the true democratization of technology: a model intended to broaden access to tooling, support, and opportunity as stronger founder outcomes reinforce the platform over time.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities" class="angled-section alt">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="section-label">Platform capabilities</div>
+                    <h2>What Emoclew is designed to provide.</h2>
+                    <p>
+                        Emoclew combines structured progression with networked support, so discovery, collaboration, tooling, and company-building momentum operate as one coordinated system rather than as disconnected founder tasks.
+                    </p>
+                </div>
+                <div class="capability-grid">
+                    <article class="capability-card">
+                        <div class="capability-tag">Discovery</div>
+                        <h3>Structured project visibility</h3>
+                        <p>Projects are meant to become discoverable through controlled visibility modes and structured matching signals, helping founders surface aligned opportunities without relying only on existing networks.</p>
+                    </article>
+                    <article class="capability-card">
+                        <div class="capability-tag">Collaboration</div>
+                        <h3>Designed for strategic collaboration</h3>
+                        <p>The platform is built to help compatible founders, teams, and adjacent projects identify where collaboration can create stronger execution paths and better company outcomes.</p>
+                    </article>
+                    <article class="capability-card">
+                        <div class="capability-tag">Tooling</div>
+                        <h3>Operational tools that expand with progress</h3>
+                        <p>As a project advances, Emoclew is designed to widen access to practical tools, AI resources, development support, and operational infrastructure.</p>
+                    </article>
+                    <article class="capability-card">
+                        <div class="capability-tag">Documentation</div>
+                        <h3>Agreement and workflow support</h3>
+                        <p>Emoclew includes structured documentation support intended to make important founder actions easier to formalize, review, and move forward with operational clarity.</p>
+                    </article>
+                    <article class="capability-card">
+                        <div class="capability-tag">SAFE generation</div>
+                        <h3>Portable founder documentation</h3>
+                        <p>The platform is designed to generate standardized SAFE and related agreement flows that can support a more legible path for formal founder actions without turning the platform itself into the financial intermediary.</p>
+                    </article>
+                    <article class="capability-card">
+                        <div class="capability-tag">Global</div>
+                        <h3>Built for global founders</h3>
+                        <p>Emoclew is intended to help strong builders move toward real company formation regardless of geography, particularly when access to startup infrastructure has historically been uneven.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="path">
+            <div class="container section-wrap">
+                <div class="section-heading">
+                    <div class="section-label">Progression model</div>
+                    <h2>Five levels. Increasing leverage.</h2>
+                    <p>
+                        Emoclew uses a staged progression model to deepen support as a project becomes more real. Publicly, the key idea is simple: stronger execution unlocks stronger infrastructure, broader access, and more serious company-building support.
+                    </p>
+                </div>
+                <div class="path-grid">
+                    <article class="path-card">
+                        <div class="path-number">0</div>
+                        <div class="path-tag">Ember</div>
+                        <h3>Enter the network</h3>
+                        <p>Shape the project, establish visibility on your terms, and begin operating inside the platform.</p>
+                    </article>
+                    <article class="path-card">
+                        <div class="path-number">1</div>
+                        <div class="path-tag">Spark</div>
+                        <h3>Unlock first operating support</h3>
+                        <p>Gain access to the first layer of practical tooling, coordination, and company-building leverage.</p>
+                    </article>
+                    <article class="path-card">
+                        <div class="path-number">2</div>
+                        <div class="path-tag">Flame</div>
+                        <h3>Build visible traction</h3>
+                        <p>Strengthen public presence, project credibility, and the support environment around the company.</p>
+                    </article>
+                    <article class="path-card">
+                        <div class="path-number">3</div>
+                        <div class="path-tag">Blaze</div>
+                        <h3>Operate with greater formal structure</h3>
+                        <p>Move into a materially more serious operating condition with deeper company infrastructure behind the work.</p>
+                    </article>
+                    <article class="path-card">
+                        <div class="path-number">4</div>
+                        <div class="path-tag">Nova</div>
+                        <h3>Expand strategic range</h3>
+                        <p>Reach the most advanced layer of support for long-horizon growth, company strategy, and future outcomes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="angled-section">
+            <div class="container split-section">
+                <div>
+                    <div class="section-label">Why it matters</div>
+                    <h2>Founder support should be structural, not accidental.</h2>
+                    <p style="color: var(--text-muted); font-size: 0.98rem; max-width: 650px;">
+                        Emoclew is interesting because it treats discovery, collaboration, documentation, tools, and company-building support as part of one operating system. The objective is not more startup theater. The objective is stronger execution conditions for founders who already have the capacity to build.
+                    </p>
+                </div>
+                <div class="quote-block">
+                    <p>
+                        Emoclew is built around a simple conviction: capable founders should have a more credible path from idea to company, even when they start without the traditional network, infrastructure, or institutional backing.
+                    </p>
+                    <p>
+                        In that sense, it is aimed at the <strong>true democratization of technology</strong> — not only wider access to software, but wider access to the structure that turns technical capability into durable outcomes.
+                    </p>
+                    <a href="https://emoclew.xyz" target="_blank" rel="noopener noreferrer" class="quote-link">Open Emoclew →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="angled-section alt">
+            <div class="container section-wrap cta">
+                <div class="section-label">Next step</div>
+                <h2>See the project, or discuss it with Cheap AI.</h2>
+                <p>
+                    Visit Emoclew to see the project directly. If you want to talk through the thinking behind it, the system design, or how it connects to the broader Cheap AI work, contact us through the main site.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://emoclew.xyz" target="_blank" rel="noopener noreferrer" class="btn-primary">Visit Emoclew</a>
+                    <a href="/#contact" class="btn-secondary">Contact Cheap AI</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="year"></span> Cheap AI · Emoclew project page</p>
+        <div class="footer-links">
+            <a href="/">Main site</a>
+            <a href="/workflow-ai">Simple AI Workflow</a>
+            <a href="/privacy-policy.html">Privacy policy</a>
+            <a href="/security-policy.html">Security policy</a>
+            <a href="/eula.html">EUA</a>
+            <a href="/sla.html">SLA</a>
+            <a href="/support-policy.html">Support policy</a>
+            <a href="/terms-of-service.html">Terms of service</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
